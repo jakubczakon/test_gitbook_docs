@@ -19,4 +19,7 @@
 ## Structured dir
 
 * [nice](structured_dir/doc1.md)
+  * [doc2](structured_dir/doc2.md)
+  * [doc3](structured_dir/doc3.md)
+
 
