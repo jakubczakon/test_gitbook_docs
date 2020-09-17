@@ -3,7 +3,7 @@ Module neptunecontrib
 
 Sub-modules
 -----------
-* [neptunecontrib.api](api/index.md)
+* neptunecontrib.api
 * neptunecontrib.bots
 * neptunecontrib.create_experiment_comparison_comment
 * neptunecontrib.create_experiment_from_json
