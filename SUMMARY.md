@@ -13,4 +13,4 @@
 
 ## Api reference
 
-* [neptune](api-reference/neptune.md)
+* [neptune](api-reference/neptune/index.md)
