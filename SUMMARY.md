@@ -16,3 +16,7 @@
 * [neptune](api-reference/neptune/index.md)
 * [neptune-contrib](api-reference/neptunecontrib/index.md)
 
+## Structured dir
+
+* [nice](structured_dir/doc1.md)
+
