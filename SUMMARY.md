@@ -14,3 +14,5 @@
 ## Api reference
 
 * [neptune](api-reference/neptune/index.md)
+* [neptune-contrib](api-reference/neptune_contrib/index.md)
+

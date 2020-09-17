@@ -1,5 +1,5 @@
-import neptune
+import neptunecontrib
 import os.path
 
-lib_path = os.path.dirname(os.path.dirname(neptune.__file__))
+lib_path = os.path.dirname(os.path.dirname(neptunecontrib.__file__))
 print(lib_path)
