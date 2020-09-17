@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>optuna.dashboard API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>optuna.dashboard</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import collections
+import threading
+import time
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+
+import numpy as np
+from packaging import version
+
+from optuna._experimental import experimental
+from optuna._imports import try_import
+import optuna.logging
+import optuna.study
+from optuna.study import StudyDirection
+import optuna.trial
+
+
+with try_import() as _imports:
+    from bokeh import __version__ as bokeh_version
+    import bokeh.command.bootstrap
+    import bokeh.document  # NOQA
+    import bokeh.layouts
+    import bokeh.models
+    import bokeh.models.widgets
+    import bokeh.plotting
+    import bokeh.themes
+    import tornado.gen
+
+    if version.parse(bokeh_version) &gt;= version.parse(&#34;2.0.0&#34;):
+        raise ImportError(
+            &#34;Your version of bokeh is &#34; + bokeh_version + &#34; . &#34;
+            &#34;Please install bokeh version earlier than 2.0.0. &#34;
+            &#34;Bokeh can be installed by executing `$ pip install &#39;bokeh&lt;2.0.0&#39;`. &#34;
+            &#34;For further information, please refer to the installation guide of bokeh. &#34;,
+            name=&#34;bokeh&#34;,
+        )
+
+
+_mode = None  # type: Optional[str]
+_study = None  # type: Optional[optuna.study.Study]
+
+_HEADER_FORMAT = &#34;&#34;&#34;
+&lt;style&gt;
+body {{
+    margin: 20px;
+}}
+h1, p {{
+    margin: 10px 0px;
+}}
+&lt;/style&gt;
+
+&lt;h1&gt;Optuna Dashboard (Beta)&lt;/h1&gt;
+&lt;p&gt;
+&lt;b&gt;Study name:&lt;/b&gt; {study_name}&lt;br&gt;
+&lt;/p&gt;
+&#34;&#34;&#34;
+
+_DATETIME_FORMAT = &#34;%Y-%m-%d %H:%M:%S&#34;
+
+if _imports.is_successful():
+
+    class _CompleteTrialsWidget(object):
+        def __init__(
+            self, trials: List[optuna.trial.FrozenTrial], direction: StudyDirection
+        ) -&gt; None:
+
+            complete_trials = [
+                trial for trial in trials if trial.state == optuna.trial.TrialState.COMPLETE
+            ]
+            self.trial_ids = set([trial._trial_id for trial in complete_trials])
+
+            self.direction = direction
+            values = [trial.value for trial in complete_trials]
+            if direction == StudyDirection.MINIMIZE:
+                best_values = np.minimum.accumulate(values, axis=0)
+            else:
+                best_values = np.maximum.accumulate(values, axis=0)
+
+            self.cds = bokeh.models.ColumnDataSource(
+                {
+                    &#34;#&#34;: list(range(len(complete_trials))),
+                    &#34;value&#34;: values,
+                    &#34;best_value&#34;: best_values,
+                }
+            )
+
+            self.best_value = best_values[-1] if complete_trials else np.inf
+
+        def create_figure(self) -&gt; bokeh.plotting.Figure:
+
+            figure = bokeh.plotting.figure(height=150)
+            figure.circle(x=&#34;#&#34;, y=&#34;value&#34;, source=self.cds, alpha=0.3, color=&#34;navy&#34;)
+            figure.line(x=&#34;#&#34;, y=&#34;best_value&#34;, source=self.cds, color=&#34;firebrick&#34;)
+            figure.xaxis[0].axis_label = &#34;Number of Trials&#34;
+            figure.yaxis[0].axis_label = &#34;Objective Value&#34;
+            return figure
+
+        def update(self, new_trials: List[optuna.trial.FrozenTrial]) -&gt; None:
+
+            stream_dict = collections.defaultdict(list)  # type: Dict[str, List[Any]]
+
+            for trial in new_trials:
+                if trial.state != optuna.trial.TrialState.COMPLETE:
+                    continue
+                if trial._trial_id in self.trial_ids:
+                    continue
+                stream_dict[&#34;#&#34;].append(len(self.trial_ids))
+                stream_dict[&#34;value&#34;].append(trial.value)
+                if self.direction == StudyDirection.MINIMIZE:
+                    self.best_value = min(self.best_value, trial.value)
+                else:
+                    self.best_value = max(self.best_value, trial.value)
+                stream_dict[&#34;best_value&#34;].append(self.best_value)
+                self.trial_ids.add(trial._trial_id)
+
+            if stream_dict:
+                self.cds.stream(stream_dict)
+
+    class _AllTrialsWidget(object):
+        def __init__(self, trials: List[optuna.trial.FrozenTrial]) -&gt; None:
+
+            self.cds = bokeh.models.ColumnDataSource(self.trials_to_dict(trials))
+
+        def create_table(self) -&gt; bokeh.models.widgets.DataTable:
+
+            return bokeh.models.widgets.DataTable(
+                source=self.cds,
+                columns=[
+                    bokeh.models.widgets.TableColumn(field=field, title=field)
+                    for field in [
+                        &#34;number&#34;,
+                        &#34;state&#34;,
+                        &#34;value&#34;,
+                        &#34;params&#34;,
+                        &#34;datetime_start&#34;,
+                        &#34;datetime_complete&#34;,
+                    ]
+                ],
+            )
+
+        def update(
+            self,
+            old_trials: List[optuna.trial.FrozenTrial],
+            new_trials: List[optuna.trial.FrozenTrial],
+        ) -&gt; None:
+
+            modified_indices = []
+            modified_trials = []
+            for i, old_trial in enumerate(old_trials):
+                new_trial = new_trials[i]
+                if old_trial != new_trial:
+                    modified_indices.append(i)
+                    modified_trials.append(new_trial)
+
+            patch_dict = self.trials_to_dict(modified_trials)
+            patch_dict = {k: list(zip(modified_indices, v)) for k, v in patch_dict.items()}
+            self.cds.patch(patch_dict)
+
+            self.cds.stream(self.trials_to_dict(new_trials[len(old_trials) :]))
+
+        @staticmethod
+        def trials_to_dict(trials: List[optuna.trial.FrozenTrial]) -&gt; Dict[str, List[Any]]:
+
+            return {
+                &#34;number&#34;: [trial.number for trial in trials],
+                &#34;state&#34;: [trial.state.name for trial in trials],
+                &#34;value&#34;: [trial.value for trial in trials],
+                &#34;params&#34;: [str(trial.params) for trial in trials],
+                &#34;datetime_start&#34;: [
+                    trial.datetime_start.strftime(_DATETIME_FORMAT)
+                    if trial.datetime_start is not None
+                    else None
+                    for trial in trials
+                ],
+                &#34;datetime_complete&#34;: [
+                    trial.datetime_complete.strftime(_DATETIME_FORMAT)
+                    if trial.datetime_complete is not None
+                    else None
+                    for trial in trials
+                ],
+            }
+
+    class _DashboardApp(object):
+        def __init__(self, study: optuna.study.Study, launch_update_thread: bool) -&gt; None:
+
+            self.study = study
+            self.launch_update_thread = launch_update_thread
+            self.lock = threading.Lock()
+
+        def __call__(self, doc: bokeh.document.Document) -&gt; None:
+
+            self.doc = doc
+            self.current_trials = (
+                self.study.trials
+            )  # type: Optional[List[optuna.trial.FrozenTrial]]
+            self.new_trials = None  # type: Optional[List[optuna.trial.FrozenTrial]]
+            self.complete_trials_widget = _CompleteTrialsWidget(
+                self.current_trials, self.study.direction
+            )
+            self.all_trials_widget = _AllTrialsWidget(self.current_trials)
+
+            self.doc.title = &#34;Optuna Dashboard (Beta)&#34;
+            header = _HEADER_FORMAT.format(study_name=self.study.study_name)
+            self.doc.add_root(
+                bokeh.layouts.layout(
+                    [
+                        [bokeh.models.widgets.Div(text=header)],
+                        [self.complete_trials_widget.create_figure()],
+                        [self.all_trials_widget.create_table()],
+                    ],
+                    sizing_mode=&#34;scale_width&#34;,
+                )
+            )
+
+            if self.launch_update_thread:
+                thread = threading.Thread(target=self.thread_loop)
+                self.stop_event = threading.Event()
+                thread.daemon = True
+                thread.start()
+                self.doc.on_session_destroyed(lambda _: self.stop_event.set())
+
+        def thread_loop(self) -&gt; None:
+
+            while not self.stop_event.is_set():
+                time.sleep(1)
+                new_trials = self.study.trials
+                with self.lock:
+                    need_to_add_callback = self.new_trials is None
+                    self.new_trials = new_trials
+                    if need_to_add_callback:
+                        self.doc.add_next_tick_callback(self.update_callback)
+
+        @tornado.gen.coroutine
+        def update_callback(self) -&gt; None:
+
+            with self.lock:
+                current_trials = self.current_trials
+                new_trials = self.new_trials
+                self.current_trials = self.new_trials
+                self.new_trials = None
+
+            assert current_trials is not None
+            assert new_trials is not None
+            self.complete_trials_widget.update(new_trials)
+            self.all_trials_widget.update(current_trials, new_trials)
+
+
+@experimental(&#34;0.1.0&#34;, name=&#34;Optuna dashboard&#34;)
+def _show_experimental_warning() -&gt; None:
+
+    pass
+
+
+def _get_this_source_path() -&gt; str:
+
+    path = __file__
+
+    # Sometimes __file__ points to a *.pyc file, but Bokeh doesn&#39;t accept it.
+    if path.endswith(&#34;.pyc&#34;):
+        path = path[:-1]
+    return path
+
+
+def _serve(study: optuna.study.Study, bokeh_allow_websocket_origins: List[str]) -&gt; None:
+
+    global _mode, _study
+
+    _imports.check()
+    _show_experimental_warning()
+
+    # We want to pass the mode (launching a server? or, just writing an HTML?) and a target study
+    # to our Bokeh app. Unfortunately, as we are using `bokeh.command.bootstrap.main` to launch
+    # our Bokeh app, we cannot directly pass Python objects to it. Therefore, we have no choice but
+    # to use global variables to pass them.
+    _mode = &#34;serve&#34;
+    _study = study
+
+    # TODO(akiba): Stop using Bokeh&#39;s CLI entry point, and start the HTTP server by ourselves.
+
+    # This is not a very clean way to launch Bokeh server.
+    # Another seemingly better way is to
+    # instantiate and launch `bokeh.server.server.Server` by ourselves. However, in this way,
+    # for some reason, we found that the CDS update is not reflected to browsers, at least on Bokeh
+    # version 0.12.15. In addition, we will need to do many configuration to servers, which can be
+    # done automatically with the following one line. So, for now, we decided to use this way.
+    command = [&#34;bokeh&#34;, &#34;serve&#34;, &#34;--show&#34;, _get_this_source_path()]
+    for bokeh_allow_websocket_origin in bokeh_allow_websocket_origins:
+        command.extend([&#34;--allow-websocket-origin&#34;, bokeh_allow_websocket_origin])
+    bokeh.command.bootstrap.main(command)
+
+
+def _write(study: optuna.study.Study, out_path: str) -&gt; None:
+
+    global _mode, _study
+
+    _imports.check()
+    _show_experimental_warning()
+
+    _mode = &#34;html&#34;
+    _study = study
+    bokeh.command.bootstrap.main([&#34;bokeh&#34;, &#34;html&#34;, _get_this_source_path(), &#34;-o&#34;, out_path])
+
+
+def _run() -&gt; None:
+
+    # Please note that `_study` and `optuna.dashboard._study` are different here. Here, this module
+    # is loaded inside Bokeh, and thus it is not `optuna.dashboard`, but `bk_script_????`.
+    study = optuna.dashboard._study
+    mode = optuna.dashboard._mode
+
+    assert study is not None
+    app = _DashboardApp(study, launch_update_thread=(mode == &#34;serve&#34;))
+    doc = bokeh.plotting.curdoc()
+    app(doc)
+
+
+if __name__.startswith(&#34;bk_script_&#34;):
+    # Here, this module is loaded inside Bokeh. Therefore, we should launch the Bokeh app.
+    _run()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="optuna" href="index.html">optuna</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

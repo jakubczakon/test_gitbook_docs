@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>optuna.integration.allennlp API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>optuna.integration.allennlp</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import json
+import os
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Union
+
+import optuna
+from optuna._experimental import experimental
+from optuna._imports import try_import
+
+with try_import() as _imports:
+    import allennlp
+    import allennlp.commands
+    import allennlp.common.util
+    from allennlp.training import EpochCallback
+
+if _imports.is_successful():
+    import _jsonnet
+else:
+    EpochCallback = object  # NOQA
+
+
+def dump_best_config(input_config_file: str, output_config_file: str, study: optuna.Study) -&gt; None:
+    &#34;&#34;&#34;Save JSON config file after updating with parameters from the best trial in the study.
+
+    Args:
+        input_config_file:
+            Input Jsonnet config file used with
+            :class:`~optuna.integration.AllenNLPExecutor`.
+        output_config_file:
+            Output JSON config file.
+        study:
+            Instance of :class:`~optuna.study.Study`.
+            Note that :func:`~optuna.study.Study.optimize` must have been called.
+
+    &#34;&#34;&#34;
+    _imports.check()
+
+    best_params = study.best_params
+    for key, value in best_params.items():
+        best_params[key] = str(value)
+    best_config = json.loads(_jsonnet.evaluate_file(input_config_file, ext_vars=best_params))
+
+    with open(output_config_file, &#34;w&#34;) as f:
+        json.dump(best_config, f, indent=4)
+
+
+@experimental(&#34;1.4.0&#34;)
+class AllenNLPExecutor(object):
+    &#34;&#34;&#34;AllenNLP extension to use optuna with Jsonnet config file.
+
+    This feature is experimental since AllenNLP major release will come soon.
+    The interface may change without prior notice to correspond to the update.
+
+    See the examples of `objective function &lt;https://github.com/optuna/optuna/blob/
+    master/examples/allennlp/allennlp_jsonnet.py&gt;`_.
+
+    From Optuna v2.1.0, users have to cast their parameters by using methods in Jsonnet.
+    Call ``std.parseInt`` for integer, or ``std.parseJson`` for floating point.
+    Please see the `example configuration &lt;https://github.com/optuna/optuna/blob/master/
+    examples/allennlp/classifier.jsonnet&gt;`_.
+
+    .. note::
+        In :class:`~optuna.integration.AllenNLPExecutor`,
+        you can pass parameters to AllenNLP by either defining a search space using
+        Optuna suggest methods or setting environment variables just like AllenNLP CLI.
+        If a value is set in both a search space in Optuna and the environment variables,
+        the executor will use the value specified in the search space in Optuna.
+
+    Args:
+        trial:
+            A :class:`~optuna.trial.Trial` corresponding to the current evaluation
+            of the objective function.
+        config_file:
+            Config file for AllenNLP.
+            Hyperparameters should be masked with ``std.extVar``.
+            Please refer to `the config example &lt;https://github.com/allenai/allentune/blob/
+            master/examples/classifier.jsonnet&gt;`_.
+        serialization_dir:
+            A path which model weights and logs are saved.
+        metrics:
+            An evaluation metric for the result of ``objective``.
+        include_package:
+            Additional packages to include.
+            For more information, please see
+            `AllenNLP documentation &lt;https://docs.allennlp.org/master/api/commands/train/&gt;`_.
+
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        trial: optuna.Trial,
+        config_file: str,
+        serialization_dir: str,
+        metrics: str = &#34;best_validation_accuracy&#34;,
+        *,
+        include_package: Optional[Union[str, List[str]]] = None
+    ):
+        _imports.check()
+
+        self._params = trial.params
+        self._config_file = config_file
+        self._serialization_dir = serialization_dir
+        self._metrics = metrics
+        if include_package is None:
+            include_package = []
+        if isinstance(include_package, str):
+            self._include_package = [include_package]
+        else:
+            self._include_package = include_package
+
+    def _build_params(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Create a dict of params for AllenNLP.
+
+        _build_params is based on allentune&#39;s ``train_func``.
+        For more detail, please refer to
+        https://github.com/allenai/allentune/blob/master/allentune/modules/allennlp_runner.py#L34-L65
+
+        &#34;&#34;&#34;
+        params = self._environment_variables()
+        params.update({key: str(value) for key, value in self._params.items()})
+        return json.loads(_jsonnet.evaluate_file(self._config_file, ext_vars=params))
+
+    @staticmethod
+    def _is_encodable(value: str) -&gt; bool:
+        # https://github.com/allenai/allennlp/blob/master/allennlp/common/params.py#L77-L85
+        return (value == &#34;&#34;) or (value.encode(&#34;utf-8&#34;, &#34;ignore&#34;) != b&#34;&#34;)
+
+    def _environment_variables(self) -&gt; Dict[str, str]:
+        return {key: value for key, value in os.environ.items() if self._is_encodable(value)}
+
+    def run(self) -&gt; float:
+        &#34;&#34;&#34;Train a model using AllenNLP.&#34;&#34;&#34;
+        try:
+            import_func = allennlp.common.util.import_submodules
+        except AttributeError:
+            import_func = allennlp.common.util.import_module_and_submodules
+
+        for package_name in self._include_package:
+            import_func(package_name)
+
+        params = allennlp.common.params.Params(self._build_params())
+        allennlp.commands.train.train_model(params, self._serialization_dir)
+
+        metrics = json.load(open(os.path.join(self._serialization_dir, &#34;metrics.json&#34;)))
+        return metrics[self._metrics]
+
+
+@experimental(&#34;2.0.0&#34;)
+class AllenNLPPruningCallback(EpochCallback):
+    &#34;&#34;&#34;AllenNLP callback to prune unpromising trials.
+
+    See `the example &lt;https://github.com/optuna/optuna/blob/master/
+    examples/allennlp/allennlp_simple.py&gt;`__
+    if you want to add a proning callback which observes a metric.
+
+    Args:
+        trial:
+            A :class:`~optuna.trial.Trial` corresponding to the current evaluation of the
+            objective function.
+        monitor:
+            An evaluation metric for pruning, e.g. ``validation_loss`` or
+            ``validation_accuracy``.
+    &#34;&#34;&#34;
+
+    def __init__(self, trial: optuna.trial.Trial, monitor: str):
+        _imports.check()
+
+        if allennlp.__version__ &lt; &#34;1.0.0&#34;:
+            raise Exception(&#34;AllenNLPPruningCallback requires `allennlp`&gt;=1.0.0.&#34;)
+
+        self._trial = trial
+        self._monitor = monitor
+
+    def __call__(
+        self,
+        trainer: &#34;allennlp.training.GradientDescentTrainer&#34;,
+        metrics: Dict[str, Any],
+        epoch: int,
+        is_master: bool,
+    ) -&gt; None:
+        value = metrics.get(self._monitor)
+        if value is None:
+            return
+
+        self._trial.report(float(value), epoch)
+        if self._trial.should_prune():
+            raise optuna.TrialPruned()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="optuna.integration.allennlp.dump_best_config"><code class="name flex">
+<span>def <span class="ident">dump_best_config</span></span>(<span>input_config_file: str, output_config_file: str, study: <a title="optuna.study.Study" href="../study.html#optuna.study.Study">Study</a>) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Save JSON config file after updating with parameters from the best trial in the study.</p>
+<h2 id="args">Args</h2>
+<p>input_config_file:
+Input Jsonnet config file used with
+:class:<code>~optuna.integration.AllenNLPExecutor</code>.
+output_config_file:
+Output JSON config file.
+study:
+Instance of :class:<code>~optuna.study.Study</code>.
+Note that :func:<code>~optuna.study.Study.optimize</code> must have been called.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dump_best_config(input_config_file: str, output_config_file: str, study: optuna.Study) -&gt; None:
+    &#34;&#34;&#34;Save JSON config file after updating with parameters from the best trial in the study.
+
+    Args:
+        input_config_file:
+            Input Jsonnet config file used with
+            :class:`~optuna.integration.AllenNLPExecutor`.
+        output_config_file:
+            Output JSON config file.
+        study:
+            Instance of :class:`~optuna.study.Study`.
+            Note that :func:`~optuna.study.Study.optimize` must have been called.
+
+    &#34;&#34;&#34;
+    _imports.check()
+
+    best_params = study.best_params
+    for key, value in best_params.items():
+        best_params[key] = str(value)
+    best_config = json.loads(_jsonnet.evaluate_file(input_config_file, ext_vars=best_params))
+
+    with open(output_config_file, &#34;w&#34;) as f:
+        json.dump(best_config, f, indent=4)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="optuna.integration.allennlp.AllenNLPExecutor"><code class="flex name class">
+<span>class <span class="ident">AllenNLPExecutor</span></span>
+<span>(</span><span>trial: optuna.trial._trial.Trial, config_file: str, serialization_dir: str, metrics: str = 'best_validation_accuracy', *, include_package: Union[str, List[str], NoneType] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>AllenNLP extension to use optuna with Jsonnet config file.</p>
+<p>This feature is experimental since AllenNLP major release will come soon.
+The interface may change without prior notice to correspond to the update.</p>
+<p>See the examples of <code>objective function &lt;https://github.com/optuna/optuna/blob/
+master/examples/allennlp/allennlp_jsonnet.py&gt;</code>_.</p>
+<p>From Optuna v2.1.0, users have to cast their parameters by using methods in Jsonnet.
+Call <code>std.parseInt</code> for integer, or <code>std.parseJson</code> for floating point.
+Please see the <code>example configuration &lt;https://github.com/optuna/optuna/blob/master/
+examples/allennlp/classifier.jsonnet&gt;</code>_.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In :class:<code>~optuna.integration.AllenNLPExecutor</code>,
+you can pass parameters to AllenNLP by either defining a search space using
+Optuna suggest methods or setting environment variables just like AllenNLP CLI.
+If a value is set in both a search space in Optuna and the environment variables,
+the executor will use the value specified in the search space in Optuna.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Added in v1.4.0 as an experimental feature. The interface may change in newer versions
+without prior notice. See <a href="https://github.com/optuna/optuna/releases/tag/v1.4.0.">https://github.com/optuna/optuna/releases/tag/v1.4.0.</a></p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AllenNLPExecutor(object):
+    &#34;&#34;&#34;AllenNLP extension to use optuna with Jsonnet config file.
+
+    This feature is experimental since AllenNLP major release will come soon.
+    The interface may change without prior notice to correspond to the update.
+
+    See the examples of `objective function &lt;https://github.com/optuna/optuna/blob/
+    master/examples/allennlp/allennlp_jsonnet.py&gt;`_.
+
+    From Optuna v2.1.0, users have to cast their parameters by using methods in Jsonnet.
+    Call ``std.parseInt`` for integer, or ``std.parseJson`` for floating point.
+    Please see the `example configuration &lt;https://github.com/optuna/optuna/blob/master/
+    examples/allennlp/classifier.jsonnet&gt;`_.
+
+    .. note::
+        In :class:`~optuna.integration.AllenNLPExecutor`,
+        you can pass parameters to AllenNLP by either defining a search space using
+        Optuna suggest methods or setting environment variables just like AllenNLP CLI.
+        If a value is set in both a search space in Optuna and the environment variables,
+        the executor will use the value specified in the search space in Optuna.
+
+    Args:
+        trial:
+            A :class:`~optuna.trial.Trial` corresponding to the current evaluation
+            of the objective function.
+        config_file:
+            Config file for AllenNLP.
+            Hyperparameters should be masked with ``std.extVar``.
+            Please refer to `the config example &lt;https://github.com/allenai/allentune/blob/
+            master/examples/classifier.jsonnet&gt;`_.
+        serialization_dir:
+            A path which model weights and logs are saved.
+        metrics:
+            An evaluation metric for the result of ``objective``.
+        include_package:
+            Additional packages to include.
+            For more information, please see
+            `AllenNLP documentation &lt;https://docs.allennlp.org/master/api/commands/train/&gt;`_.
+
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        trial: optuna.Trial,
+        config_file: str,
+        serialization_dir: str,
+        metrics: str = &#34;best_validation_accuracy&#34;,
+        *,
+        include_package: Optional[Union[str, List[str]]] = None
+    ):
+        _imports.check()
+
+        self._params = trial.params
+        self._config_file = config_file
+        self._serialization_dir = serialization_dir
+        self._metrics = metrics
+        if include_package is None:
+            include_package = []
+        if isinstance(include_package, str):
+            self._include_package = [include_package]
+        else:
+            self._include_package = include_package
+
+    def _build_params(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Create a dict of params for AllenNLP.
+
+        _build_params is based on allentune&#39;s ``train_func``.
+        For more detail, please refer to
+        https://github.com/allenai/allentune/blob/master/allentune/modules/allennlp_runner.py#L34-L65
+
+        &#34;&#34;&#34;
+        params = self._environment_variables()
+        params.update({key: str(value) for key, value in self._params.items()})
+        return json.loads(_jsonnet.evaluate_file(self._config_file, ext_vars=params))
+
+    @staticmethod
+    def _is_encodable(value: str) -&gt; bool:
+        # https://github.com/allenai/allennlp/blob/master/allennlp/common/params.py#L77-L85
+        return (value == &#34;&#34;) or (value.encode(&#34;utf-8&#34;, &#34;ignore&#34;) != b&#34;&#34;)
+
+    def _environment_variables(self) -&gt; Dict[str, str]:
+        return {key: value for key, value in os.environ.items() if self._is_encodable(value)}
+
+    def run(self) -&gt; float:
+        &#34;&#34;&#34;Train a model using AllenNLP.&#34;&#34;&#34;
+        try:
+            import_func = allennlp.common.util.import_submodules
+        except AttributeError:
+            import_func = allennlp.common.util.import_module_and_submodules
+
+        for package_name in self._include_package:
+            import_func(package_name)
+
+        params = allennlp.common.params.Params(self._build_params())
+        allennlp.commands.train.train_model(params, self._serialization_dir)
+
+        metrics = json.load(open(os.path.join(self._serialization_dir, &#34;metrics.json&#34;)))
+        return metrics[self._metrics]</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="optuna.integration.allennlp.AllenNLPExecutor.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Train a model using AllenNLP.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self) -&gt; float:
+    &#34;&#34;&#34;Train a model using AllenNLP.&#34;&#34;&#34;
+    try:
+        import_func = allennlp.common.util.import_submodules
+    except AttributeError:
+        import_func = allennlp.common.util.import_module_and_submodules
+
+    for package_name in self._include_package:
+        import_func(package_name)
+
+    params = allennlp.common.params.Params(self._build_params())
+    allennlp.commands.train.train_model(params, self._serialization_dir)
+
+    metrics = json.load(open(os.path.join(self._serialization_dir, &#34;metrics.json&#34;)))
+    return metrics[self._metrics]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="optuna.integration.allennlp.AllenNLPPruningCallback"><code class="flex name class">
+<span>class <span class="ident">AllenNLPPruningCallback</span></span>
+<span>(</span><span>trial: optuna.trial._trial.Trial, monitor: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>AllenNLP callback to prune unpromising trials.</p>
+<p>See <code>the example &lt;https://github.com/optuna/optuna/blob/master/
+examples/allennlp/allennlp_simple.py&gt;</code>__
+if you want to add a proning callback which observes a metric.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Added in v2.0.0 as an experimental feature. The interface may change in newer versions
+without prior notice. See <a href="https://github.com/optuna/optuna/releases/tag/v2.0.0.">https://github.com/optuna/optuna/releases/tag/v2.0.0.</a></p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AllenNLPPruningCallback(EpochCallback):
+    &#34;&#34;&#34;AllenNLP callback to prune unpromising trials.
+
+    See `the example &lt;https://github.com/optuna/optuna/blob/master/
+    examples/allennlp/allennlp_simple.py&gt;`__
+    if you want to add a proning callback which observes a metric.
+
+    Args:
+        trial:
+            A :class:`~optuna.trial.Trial` corresponding to the current evaluation of the
+            objective function.
+        monitor:
+            An evaluation metric for pruning, e.g. ``validation_loss`` or
+            ``validation_accuracy``.
+    &#34;&#34;&#34;
+
+    def __init__(self, trial: optuna.trial.Trial, monitor: str):
+        _imports.check()
+
+        if allennlp.__version__ &lt; &#34;1.0.0&#34;:
+            raise Exception(&#34;AllenNLPPruningCallback requires `allennlp`&gt;=1.0.0.&#34;)
+
+        self._trial = trial
+        self._monitor = monitor
+
+    def __call__(
+        self,
+        trainer: &#34;allennlp.training.GradientDescentTrainer&#34;,
+        metrics: Dict[str, Any],
+        epoch: int,
+        is_master: bool,
+    ) -&gt; None:
+        value = metrics.get(self._monitor)
+        if value is None:
+            return
+
+        self._trial.report(float(value), epoch)
+        if self._trial.should_prune():
+            raise optuna.TrialPruned()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="optuna.integration" href="index.html">optuna.integration</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="optuna.integration.allennlp.dump_best_config" href="#optuna.integration.allennlp.dump_best_config">dump_best_config</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="optuna.integration.allennlp.AllenNLPExecutor" href="#optuna.integration.allennlp.AllenNLPExecutor">AllenNLPExecutor</a></code></h4>
+<ul class="">
+<li><code><a title="optuna.integration.allennlp.AllenNLPExecutor.run" href="#optuna.integration.allennlp.AllenNLPExecutor.run">run</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="optuna.integration.allennlp.AllenNLPPruningCallback" href="#optuna.integration.allennlp.AllenNLPPruningCallback">AllenNLPPruningCallback</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>optuna.cli API documentation</title>
+<meta name="description" content="Optuna CLI module …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>optuna.cli</code></h1>
+</header>
+<section id="section-intro">
+<p>Optuna CLI module.</p>
+<p>This module is implemented using cliff. It follows
+<a href="https://docs.openstack.org/cliff/latest/user/demoapp.html">the demoapp</a>.</p>
+<p>If you want to add a new command, you also need to update <code>entry_points</code> in <code>setup.py</code>.
+c.f. <a href="https://docs.openstack.org/cliff/latest/user/demoapp.html#setup-py">https://docs.openstack.org/cliff/latest/user/demoapp.html#setup-py</a></p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Optuna CLI module.
+
+This module is implemented using cliff. It follows
+[the demoapp](https://docs.openstack.org/cliff/latest/user/demoapp.html).
+
+If you want to add a new command, you also need to update `entry_points` in `setup.py`.
+c.f. https://docs.openstack.org/cliff/latest/user/demoapp.html#setup-py
+&#34;&#34;&#34;
+
+from argparse import ArgumentParser  # NOQA
+from argparse import Namespace  # NOQA
+from importlib.machinery import SourceFileLoader
+import logging
+import sys
+import types
+from typing import Any
+from typing import Dict
+from typing import Optional
+from typing import Tuple
+import warnings
+
+from cliff.app import App
+from cliff.command import Command
+from cliff.commandmanager import CommandManager
+from cliff.lister import Lister
+
+import optuna
+from optuna.exceptions import CLIUsageError
+from optuna.storages import RDBStorage
+
+
+def _check_storage_url(storage_url: Optional[str]) -&gt; str:
+
+    if storage_url is None:
+        raise CLIUsageError(&#34;Storage URL is not specified.&#34;)
+    return storage_url
+
+
+class _BaseCommand(Command):
+    def __init__(self, *args: Any, **kwargs: Any) -&gt; None:
+
+        super(_BaseCommand, self).__init__(*args, **kwargs)
+        self.logger = optuna.logging.get_logger(__name__)
+
+
+class _CreateStudy(_BaseCommand):
+    &#34;&#34;&#34;Create a new study.&#34;&#34;&#34;
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_CreateStudy, self).get_parser(prog_name)
+        parser.add_argument(
+            &#34;--study-name&#34;,
+            default=None,
+            help=&#34;A human-readable name of a study to distinguish it from others.&#34;,
+        )
+        parser.add_argument(
+            &#34;--direction&#34;,
+            type=str,
+            choices=(&#34;minimize&#34;, &#34;maximize&#34;),
+            default=&#34;minimize&#34;,
+            help=&#34;Set direction of optimization to a new study. Set &#39;minimize&#39; &#34;
+            &#34;for minimization and &#39;maximize&#39; for maximization.&#34;,
+        )
+        parser.add_argument(
+            &#34;--skip-if-exists&#34;,
+            default=False,
+            action=&#34;store_true&#34;,
+            help=&#34;If specified, the creation of the study is skipped &#34;
+            &#34;without any error when the study name is duplicated.&#34;,
+        )
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; None:
+
+        storage_url = _check_storage_url(self.app_args.storage)
+        storage = optuna.storages.get_storage(storage_url)
+        study_name = optuna.create_study(
+            storage=storage,
+            study_name=parsed_args.study_name,
+            direction=parsed_args.direction,
+            load_if_exists=parsed_args.skip_if_exists,
+        ).study_name
+        print(study_name)
+
+
+class _DeleteStudy(_BaseCommand):
+    &#34;&#34;&#34;Delete a specified study.&#34;&#34;&#34;
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_DeleteStudy, self).get_parser(prog_name)
+        parser.add_argument(&#34;--study-name&#34;, default=None, help=&#34;The name of the study to delete.&#34;)
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; None:
+
+        storage_url = _check_storage_url(self.app_args.storage)
+        storage = optuna.storages.get_storage(storage_url)
+        study_id = storage.get_study_id_from_name(parsed_args.study_name)
+        storage.delete_study(study_id)
+
+
+class _StudySetUserAttribute(_BaseCommand):
+    &#34;&#34;&#34;Set a user attribute to a study.&#34;&#34;&#34;
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_StudySetUserAttribute, self).get_parser(prog_name)
+        parser.add_argument(
+            &#34;--study&#34;, default=None, help=&#34;This argument is deprecated. Use --study-name instead.&#34;
+        )
+        parser.add_argument(
+            &#34;--study-name&#34;,
+            default=None,
+            help=&#34;The name of the study to set the user attribute to.&#34;,
+        )
+        parser.add_argument(&#34;--key&#34;, &#34;-k&#34;, required=True, help=&#34;Key of the user attribute.&#34;)
+        parser.add_argument(&#34;--value&#34;, &#34;-v&#34;, required=True, help=&#34;Value to be set.&#34;)
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; None:
+
+        storage_url = _check_storage_url(self.app_args.storage)
+
+        if parsed_args.study and parsed_args.study_name:
+            raise ValueError(
+                &#34;Both `--study-name` and the deprecated `--study` was specified. &#34;
+                &#34;Please remove the `--study` flag.&#34;
+            )
+        elif parsed_args.study:
+            message = &#34;The use of `--study` is deprecated. Please use `--study-name` instead.&#34;
+            warnings.warn(message, FutureWarning)
+            study = optuna.load_study(storage=storage_url, study_name=parsed_args.study)
+        elif parsed_args.study_name:
+            study = optuna.load_study(storage=storage_url, study_name=parsed_args.study_name)
+        else:
+            raise ValueError(&#34;Missing study name. Please use `--study-name`.&#34;)
+
+        study.set_user_attr(parsed_args.key, parsed_args.value)
+
+        self.logger.info(&#34;Attribute successfully written.&#34;)
+
+
+class _Studies(Lister):
+    &#34;&#34;&#34;Show a list of studies.&#34;&#34;&#34;
+
+    _datetime_format = &#34;%Y-%m-%d %H:%M:%S&#34;
+    _study_list_header = (&#34;NAME&#34;, &#34;DIRECTION&#34;, &#34;N_TRIALS&#34;, &#34;DATETIME_START&#34;)
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_Studies, self).get_parser(prog_name)
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; Tuple[Tuple, Tuple[Tuple, ...]]:
+
+        storage_url = _check_storage_url(self.app_args.storage)
+        summaries = optuna.get_all_study_summaries(storage=storage_url)
+
+        rows = []
+        for s in summaries:
+            start = (
+                s.datetime_start.strftime(self._datetime_format)
+                if s.datetime_start is not None
+                else None
+            )
+            row = (s.study_name, s.direction.name, s.n_trials, start)
+            rows.append(row)
+
+        return self._study_list_header, tuple(rows)
+
+
+class _Dashboard(_BaseCommand):
+    &#34;&#34;&#34;Launch web dashboard (beta).&#34;&#34;&#34;
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_Dashboard, self).get_parser(prog_name)
+        parser.add_argument(
+            &#34;--study&#34;, default=None, help=&#34;This argument is deprecated. Use --study-name instead.&#34;
+        )
+        parser.add_argument(
+            &#34;--study-name&#34;, default=None, help=&#34;The name of the study to show on the dashboard.&#34;
+        )
+        parser.add_argument(
+            &#34;--out&#34;,
+            &#34;-o&#34;,
+            help=&#34;Output HTML file path. If it is not given, a HTTP server starts &#34;
+            &#34;and the dashboard is served.&#34;,
+        )
+        parser.add_argument(
+            &#34;--allow-websocket-origin&#34;,
+            dest=&#34;bokeh_allow_websocket_origins&#34;,
+            action=&#34;append&#34;,
+            default=[],
+            help=&#34;Allow websocket access from the specified host(s).&#34;
+            &#34;Internally, it is used as the value of bokeh&#39;s &#34;
+            &#34;--allow-websocket-origin option. Please refer to &#34;
+            &#34;https://bokeh.pydata.org/en/latest/docs/&#34;
+            &#34;reference/command/subcommands/serve.html &#34;
+            &#34;for more details.&#34;,
+        )
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; None:
+
+        storage_url = _check_storage_url(self.app_args.storage)
+
+        if parsed_args.study and parsed_args.study_name:
+            raise ValueError(
+                &#34;Both `--study-name` and the deprecated `--study` was specified. &#34;
+                &#34;Please remove the `--study` flag.&#34;
+            )
+        elif parsed_args.study:
+            message = &#34;The use of `--study` is deprecated. Please use `--study-name` instead.&#34;
+            warnings.warn(message, FutureWarning)
+            study = optuna.load_study(storage=storage_url, study_name=parsed_args.study)
+        elif parsed_args.study_name:
+            study = optuna.load_study(storage=storage_url, study_name=parsed_args.study_name)
+        else:
+            raise ValueError(&#34;Missing study name. Please use `--study-name`.&#34;)
+
+        if parsed_args.out is None:
+            optuna.dashboard._serve(study, parsed_args.bokeh_allow_websocket_origins)
+        else:
+            optuna.dashboard._write(study, parsed_args.out)
+            self.logger.info(&#34;Report successfully written to: {}&#34;.format(parsed_args.out))
+
+
+class _StudyOptimize(_BaseCommand):
+    &#34;&#34;&#34;Start optimization of a study. Deprecated since version 2.0.0.&#34;&#34;&#34;
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_StudyOptimize, self).get_parser(prog_name)
+        parser.add_argument(
+            &#34;--n-trials&#34;,
+            type=int,
+            help=&#34;The number of trials. If this argument is not given, as many &#34;
+            &#34;trials run as possible.&#34;,
+        )
+        parser.add_argument(
+            &#34;--timeout&#34;,
+            type=float,
+            help=&#34;Stop study after the given number of second(s). If this argument&#34;
+            &#34; is not given, as many trials run as possible.&#34;,
+        )
+        parser.add_argument(
+            &#34;--n-jobs&#34;,
+            type=int,
+            default=1,
+            help=&#34;The number of parallel jobs. If this argument is set to -1, the &#34;
+            &#34;number is set to CPU counts.&#34;,
+        )
+        parser.add_argument(
+            &#34;--study&#34;, default=None, help=&#34;This argument is deprecated. Use --study-name instead.&#34;
+        )
+        parser.add_argument(
+            &#34;--study-name&#34;, default=None, help=&#34;The name of the study to start optimization on.&#34;
+        )
+        parser.add_argument(
+            &#34;file&#34;, help=&#34;Python script file where the objective function resides.&#34;
+        )
+        parser.add_argument(&#34;method&#34;, help=&#34;The method name of the objective function.&#34;)
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; int:
+
+        message = (
+            &#34;The use of the `study optimize` command is deprecated. Please execute your Python &#34;
+            &#34;script directly instead.&#34;
+        )
+        warnings.warn(message, FutureWarning)
+
+        storage_url = _check_storage_url(self.app_args.storage)
+
+        if parsed_args.study and parsed_args.study_name:
+            raise ValueError(
+                &#34;Both `--study-name` and the deprecated `--study` was specified. &#34;
+                &#34;Please remove the `--study` flag.&#34;
+            )
+        elif parsed_args.study:
+            message = &#34;The use of `--study` is deprecated. Please use `--study-name` instead.&#34;
+            warnings.warn(message, FutureWarning)
+            study = optuna.load_study(storage=storage_url, study_name=parsed_args.study)
+        elif parsed_args.study_name:
+            study = optuna.load_study(storage=storage_url, study_name=parsed_args.study_name)
+        else:
+            raise ValueError(&#34;Missing study name. Please use `--study-name`.&#34;)
+
+        # We force enabling the debug flag. As we are going to execute user codes, we want to show
+        # exception stack traces by default.
+        self.app.options.debug = True
+
+        module_name = &#34;optuna_target_module&#34;
+        target_module = types.ModuleType(module_name)
+        loader = SourceFileLoader(module_name, parsed_args.file)
+        loader.exec_module(target_module)
+
+        try:
+            target_method = getattr(target_module, parsed_args.method)
+        except AttributeError:
+            self.logger.error(
+                &#34;Method {} not found in file {}.&#34;.format(parsed_args.method, parsed_args.file)
+            )
+            return 1
+
+        study.optimize(
+            target_method,
+            n_trials=parsed_args.n_trials,
+            timeout=parsed_args.timeout,
+            n_jobs=parsed_args.n_jobs,
+        )
+        return 0
+
+
+class _StorageUpgrade(_BaseCommand):
+    &#34;&#34;&#34;Upgrade the schema of a storage.&#34;&#34;&#34;
+
+    def get_parser(self, prog_name: str) -&gt; ArgumentParser:
+
+        parser = super(_StorageUpgrade, self).get_parser(prog_name)
+        return parser
+
+    def take_action(self, parsed_args: Namespace) -&gt; None:
+
+        storage_url = _check_storage_url(self.app_args.storage)
+        if storage_url.startswith(&#34;redis&#34;):
+            self.logger.info(&#34;This storage does not support upgrade yet.&#34;)
+            return
+        storage = RDBStorage(storage_url, skip_compatibility_check=True)
+        current_version = storage.get_current_version()
+        head_version = storage.get_head_version()
+        known_versions = storage.get_all_versions()
+        if current_version == head_version:
+            self.logger.info(&#34;This storage is up-to-date.&#34;)
+        elif current_version in known_versions:
+            self.logger.info(&#34;Upgrading the storage schema to the latest version.&#34;)
+            storage.upgrade()
+            self.logger.info(&#34;Completed to upgrade the storage.&#34;)
+        else:
+            warnings.warn(
+                &#34;Your optuna version seems outdated against the storage version. &#34;
+                &#34;Please try updating optuna to the latest version by &#34;
+                &#34;`$ pip install -U optuna`.&#34;
+            )
+
+
+class _OptunaApp(App):
+    def __init__(self) -&gt; None:
+
+        super(_OptunaApp, self).__init__(
+            description=&#34;&#34;,
+            version=optuna.__version__,
+            command_manager=CommandManager(&#34;optuna.command&#34;),
+        )
+
+    def build_option_parser(
+        self, description: str, version: str, argparse_kwargs: Optional[Dict] = None
+    ) -&gt; ArgumentParser:
+
+        parser = super(_OptunaApp, self).build_option_parser(description, version, argparse_kwargs)
+        parser.add_argument(&#34;--storage&#34;, default=None, help=&#34;DB URL. (e.g. sqlite:///example.db)&#34;)
+        return parser
+
+    def configure_logging(self) -&gt; None:
+
+        super(_OptunaApp, self).configure_logging()
+
+        # Find the StreamHandler that is configured by super&#39;s configure_logging,
+        # and replace its formatter with our fancy one.
+        root_logger = logging.getLogger()
+        stream_handlers = [
+            handler
+            for handler in root_logger.handlers
+            if isinstance(handler, logging.StreamHandler)
+        ]
+        assert len(stream_handlers) == 1
+        stream_handler = stream_handlers[0]
+        stream_handler.setFormatter(optuna.logging.create_default_formatter())
+
+    def clean_up(self, cmd: Command, result: int, err: Optional[Exception]) -&gt; None:
+
+        if isinstance(err, CLIUsageError):
+            self.parser.print_help()
+
+
+def main() -&gt; int:
+
+    argv = sys.argv[1:] if len(sys.argv) &gt; 1 else [&#34;help&#34;]
+    return _OptunaApp().run(argv)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="optuna.cli.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main() -&gt; int:
+
+    argv = sys.argv[1:] if len(sys.argv) &gt; 1 else [&#34;help&#34;]
+    return _OptunaApp().run(argv)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="optuna" href="index.html">optuna</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="optuna.cli.main" href="#optuna.cli.main">main</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

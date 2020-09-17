@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>optuna.importance API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>optuna.importance</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import Dict
+from typing import List
+from typing import Optional
+
+from optuna.importance._base import BaseImportanceEvaluator
+from optuna.importance._fanova import FanovaImportanceEvaluator
+from optuna.importance._mean_decrease_impurity import (  # NOQA
+    MeanDecreaseImpurityImportanceEvaluator,  # NOQA
+)
+from optuna.study import Study
+
+
+def get_param_importances(
+    study: Study,
+    *,
+    evaluator: Optional[BaseImportanceEvaluator] = None,
+    params: Optional[List[str]] = None
+) -&gt; Dict[str, float]:
+    &#34;&#34;&#34;Evaluate parameter importances based on completed trials in the given study.
+
+    The parameter importances are returned as a dictionary where the keys consist of parameter
+    names and their values importances.
+    The importances are represented by floating point numbers that sum to 1.0 over the entire
+    dictionary.
+    The higher the value, the more important.
+    The returned dictionary is of type :class:`collections.OrderedDict` and is ordered by
+    its values in a descending order.
+
+    If ``params`` is :obj:`None`, all parameter that are present in all of the completed trials are
+    assessed.
+    This implies that conditional parameters will be excluded from the evaluation.
+    To assess the importances of conditional parameters, a :obj:`list` of parameter names can be
+    specified via ``params``.
+    If specified, only completed trials that contain all of the parameters will be considered.
+    If no such trials are found, an error will be raised.
+
+    If the given study does not contain completed trials, an error will be raised.
+
+    .. note::
+
+        If ``params`` is specified as an empty list, an empty dictionary is returned.
+
+    .. seealso::
+
+        See :func:`~optuna.visualization.plot_param_importances` to plot importances.
+
+    Args:
+        study:
+            An optimized study.
+        evaluator:
+            An importance evaluator object that specifies which algorithm to base the importance
+            assessment on.
+            Defaults to
+            :class:`~optuna.importance.FanovaImportanceEvaluator`.
+        params:
+            A list of names of parameters to assess.
+            If :obj:`None`, all parameters that are present in all of the completed trials are
+            assessed.
+
+    Returns:
+        An :class:`collections.OrderedDict` where the keys are parameter names and the values are
+        assessed importances.
+    &#34;&#34;&#34;
+    if evaluator is None:
+        evaluator = FanovaImportanceEvaluator()
+
+    if not isinstance(evaluator, BaseImportanceEvaluator):
+        raise TypeError(&#34;Evaluator must be a subclass of BaseImportanceEvaluator.&#34;)
+
+    return evaluator.evaluate(study, params=params)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="optuna.importance.get_param_importances"><code class="name flex">
+<span>def <span class="ident">get_param_importances</span></span>(<span>study: <a title="optuna.study.Study" href="../study.html#optuna.study.Study">Study</a>, *, evaluator: Union[optuna.importance._base.BaseImportanceEvaluator, NoneType] = None, params: Union[List[str], NoneType] = None) ‑> Dict[str, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Evaluate parameter importances based on completed trials in the given study.</p>
+<p>The parameter importances are returned as a dictionary where the keys consist of parameter
+names and their values importances.
+The importances are represented by floating point numbers that sum to 1.0 over the entire
+dictionary.
+The higher the value, the more important.
+The returned dictionary is of type :class:<code>collections.OrderedDict</code> and is ordered by
+its values in a descending order.</p>
+<p>If <code>params</code> is :obj:<code>None</code>, all parameter that are present in all of the completed trials are
+assessed.
+This implies that conditional parameters will be excluded from the evaluation.
+To assess the importances of conditional parameters, a :obj:<code>list</code> of parameter names can be
+specified via <code>params</code>.
+If specified, only completed trials that contain all of the parameters will be considered.
+If no such trials are found, an error will be raised.</p>
+<p>If the given study does not contain completed trials, an error will be raised.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <code>params</code> is specified as an empty list, an empty dictionary is returned.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
+<p>See :func:<code>~optuna.visualization.plot_param_importances</code> to plot importances.</p>
+</div>
+<h2 id="args">Args</h2>
+<p>study:
+An optimized study.
+evaluator:
+An importance evaluator object that specifies which algorithm to base the importance
+assessment on.
+Defaults to
+:class:<code>~optuna.importance.FanovaImportanceEvaluator</code>.
+params:
+A list of names of parameters to assess.
+If :obj:<code>None</code>, all parameters that are present in all of the completed trials are
+assessed.</p>
+<h2 id="returns">Returns</h2>
+<p>An :class:<code>collections.OrderedDict</code> where the keys are parameter names and the values are
+assessed importances.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_param_importances(
+    study: Study,
+    *,
+    evaluator: Optional[BaseImportanceEvaluator] = None,
+    params: Optional[List[str]] = None
+) -&gt; Dict[str, float]:
+    &#34;&#34;&#34;Evaluate parameter importances based on completed trials in the given study.
+
+    The parameter importances are returned as a dictionary where the keys consist of parameter
+    names and their values importances.
+    The importances are represented by floating point numbers that sum to 1.0 over the entire
+    dictionary.
+    The higher the value, the more important.
+    The returned dictionary is of type :class:`collections.OrderedDict` and is ordered by
+    its values in a descending order.
+
+    If ``params`` is :obj:`None`, all parameter that are present in all of the completed trials are
+    assessed.
+    This implies that conditional parameters will be excluded from the evaluation.
+    To assess the importances of conditional parameters, a :obj:`list` of parameter names can be
+    specified via ``params``.
+    If specified, only completed trials that contain all of the parameters will be considered.
+    If no such trials are found, an error will be raised.
+
+    If the given study does not contain completed trials, an error will be raised.
+
+    .. note::
+
+        If ``params`` is specified as an empty list, an empty dictionary is returned.
+
+    .. seealso::
+
+        See :func:`~optuna.visualization.plot_param_importances` to plot importances.
+
+    Args:
+        study:
+            An optimized study.
+        evaluator:
+            An importance evaluator object that specifies which algorithm to base the importance
+            assessment on.
+            Defaults to
+            :class:`~optuna.importance.FanovaImportanceEvaluator`.
+        params:
+            A list of names of parameters to assess.
+            If :obj:`None`, all parameters that are present in all of the completed trials are
+            assessed.
+
+    Returns:
+        An :class:`collections.OrderedDict` where the keys are parameter names and the values are
+        assessed importances.
+    &#34;&#34;&#34;
+    if evaluator is None:
+        evaluator = FanovaImportanceEvaluator()
+
+    if not isinstance(evaluator, BaseImportanceEvaluator):
+        raise TypeError(&#34;Evaluator must be a subclass of BaseImportanceEvaluator.&#34;)
+
+    return evaluator.evaluate(study, params=params)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="optuna" href="../index.html">optuna</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="optuna.importance.get_param_importances" href="#optuna.importance.get_param_importances">get_param_importances</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

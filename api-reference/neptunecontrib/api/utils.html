@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>neptunecontrib.api.utils API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>neptunecontrib.api.utils</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#
+# Copyright (c) 2019, Neptune Labs Sp. z o.o.
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+import os
+import tempfile
+import warnings
+
+import joblib
+import neptune
+import pandas as pd
+
+warnings.filterwarnings(&#39;ignore&#39;)
+
+__all__ = [
+    &#39;concat_experiments_on_channel&#39;,
+    &#39;extract_project_progress_info&#39;,
+    &#39;get_channel_columns&#39;,
+    &#39;get_parameter_columns&#39;,
+    &#39;get_property_columns&#39;,
+    &#39;get_system_columns&#39;,
+    &#39;strip_prefices&#39;,
+    &#39;log_pickle&#39;,
+    &#39;get_pickle&#39;
+]
+
+
+def concat_experiments_on_channel(experiments, channel_name):
+    &#34;&#34;&#34;Combines channel values from experiments into one dataframe.
+
+    This function helps to compare channel values from a list of experiments
+    by combining them in a dataframe. E.g: Say we want to extract the `log_loss`
+    channel values for a list of experiments. The resulting dataframe will have
+    [&#39;id&#39;,&#39;x_log_loss&#39;,&#39;y_log_loss&#39;] columns.
+
+    Args:
+        experiments(list): list of `neptune.experiments.Experiment` objects.
+        channel_name(str): name of the channel for which we want to extract values.
+
+    Returns:
+        `pandas.DataFrame`: Dataframe of [&#39;id&#39;,&#39;x_CHANNEL_NAME&#39;,&#39;y_CHANNEL_NAME&#39;]
+        values concatenated from a list of experiments.
+
+    Examples:
+        Instantiate a session::
+
+            from neptune.sessions import Session
+            session = Session()
+
+        Fetch a project and a list of experiments::
+
+            project = session.get_projects(&#39;neptune-ai&#39;)[&#39;neptune-ai/Salt-Detection&#39;]
+            experiments = project.get_experiments(state=[&#39;aborted&#39;], owner=[&#39;neyo&#39;], min_running_time=100000)
+
+        Construct a channel value dataframe::
+
+            from neptunecontrib.api.utils import concat_experiments_on_channel
+            compare_df = concat_experiments_on_channel(experiments,&#39;unet_0 epoch_val iout loss&#39;)
+
+    Note:
+        If an experiment in the list of experiments does not contain the channel with a specified channel_name
+        it will be omitted.
+    &#34;&#34;&#34;
+    combined_df = []
+    for experiment in experiments:
+        if channel_name in experiment.get_channels().keys():
+            channel_df = experiment.get_numeric_channels_values(channel_name)
+            channel_df[&#39;id&#39;] = experiment.id
+            combined_df.append(channel_df)
+    combined_df = pd.concat(combined_df, axis=0)
+    return combined_df
+
+
+def extract_project_progress_info(leadearboard, metric_colname,
+                                  time_colname=&#39;finished&#39;):
+    &#34;&#34;&#34;Extracts the project progress information from the experiment view.
+
+    This function takes the experiment view (leaderboard) and extracts the information
+    that is important for analysing the project progress. It creates additional columns
+    `metric` (actual experiment metric), `metric_best` (best metric score to date)),
+    `running_time_day` (total amount of experiment running time for a given day in hours),
+    &#39;experiment_count_day&#39; (total number of experiments ran in a given day).
+
+    This function is usually used with the `plot_project_progress` from `neptunecontrib.viz.projects`.
+
+    Args:
+        leadearboard(`pandas.DataFrame`): Dataframe containing the experiment view of the project.
+            It can be extracted via `project.get_leaderboard()`.
+        metric_colname(str): name of the column containing the metric of interest.
+        time_colname(str): name of the column containing the timestamp. It can be either `finished`
+            or `created`. Default is &#39;finished&#39;.
+
+    Returns:
+        `pandas.DataFrame`: Dataframe of [&#39;id&#39;, &#39;metric&#39;, &#39;metric_best&#39;, &#39;running_time&#39;,
+        &#39;running_time_day&#39;, &#39;experiment_count_day&#39;, &#39;owner&#39;, &#39;tags&#39;, &#39;timestamp&#39;, &#39;timestamp_day&#39;]
+        columns.
+
+    Examples:
+        Instantiate a session::
+
+            from neptune.sessions import Session
+            session = Session()
+
+        Fetch a project and the experiment view of that project::
+
+            project = session.get_projects(&#39;neptune-ai&#39;)[&#39;neptune-ai/Salt-Detection&#39;]
+            leaderboard = project.get_leaderboard()
+
+        Create a progress info dataframe::
+
+            from neptunecontrib.api.utils import extract_project_progress_info
+            progress_df = extract_project_progress_info(leadearboard,
+                                                        metric_colname=&#39;channel_IOUT&#39;,
+                                                        time_colname=&#39;finished&#39;)
+    &#34;&#34;&#34;
+    system_columns = [&#39;id&#39;, &#39;owner&#39;, &#39;running_time&#39;, &#39;tags&#39;]
+    progress_columns = system_columns + [time_colname, metric_colname]
+    progress_df = leadearboard[progress_columns]
+    progress_df.columns = [&#39;id&#39;, &#39;owner&#39;, &#39;running_time&#39;, &#39;tags&#39;] + [&#39;timestamp&#39;, &#39;metric&#39;]
+
+    progress_df = _prep_time_column(progress_df)
+    progress_df = _prep_metric_column(progress_df)
+
+    progress_df = _get_daily_running_time(progress_df)
+    progress_df = _get_daily_experiment_counts(progress_df)
+    progress_df = _get_current_best(progress_df)
+    progress_df = progress_df[
+        [&#39;id&#39;, &#39;metric&#39;, &#39;metric_best&#39;, &#39;running_time&#39;, &#39;running_time_day&#39;, &#39;experiment_count_day&#39;,
+         &#39;owner&#39;, &#39;tags&#39;, &#39;timestamp&#39;, &#39;timestamp_day&#39;]]
+
+    return progress_df
+
+
+def get_channel_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the channel column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel column names.
+    &#34;&#34;&#34;
+    return [col for col in columns if col.startswith(&#39;channel_&#39;)]
+
+
+def get_parameter_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the parameter column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel parameter names.
+    &#34;&#34;&#34;
+    return [col for col in columns if col.startswith(&#39;parameter_&#39;)]
+
+
+def get_property_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the property column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel property names.
+    &#34;&#34;&#34;
+    return [col for col in columns if col.startswith(&#39;property_&#39;)]
+
+
+def get_system_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the system column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel system names.
+    &#34;&#34;&#34;
+    excluded_prefices = [&#39;channel_&#39;, &#39;parameter_&#39;, &#39;property_&#39;]
+    return [col for col in columns if not any([col.startswith(prefix) for
+                                               prefix in excluded_prefices])]
+
+
+def strip_prefices(columns, prefices):
+    &#34;&#34;&#34;Filters leaderboard columns to get the system column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+        prefices(list): List of prefices to strip. You can choose one of
+            [&#39;channel_&#39;, &#39;parameter_&#39;, &#39;property_&#39;]
+
+    Returns:
+        list: A list of clean column names.
+    &#34;&#34;&#34;
+    new_columns = []
+    for col in columns:
+        for prefix in prefices:
+            if col.startswith(prefix):
+                col = col.replace(prefix, &#39;&#39;)
+        new_columns.append(col)
+    return new_columns
+
+
+def get_filepaths(dirpath=&#39;.&#39;, extensions=None):
+    &#34;&#34;&#34;Creates a list of all the files with selected extensions.
+
+    Args:
+        dirpath(str): Folder from which all files with given extensions should be added to list.
+        extensions(list(str) or None): All extensions with which files should be added to the list.
+
+    Returns:
+        list: A list of filepaths with given extensions that are in the directory or subdirecotries.
+
+    Examples:
+        Initialize Neptune::
+
+             import neptune
+             from neptunecontrib.versioning.data import log_data_version
+             neptune.init(&#39;USER_NAME/PROJECT_NAME&#39;)
+
+        Create experiment and track all .py files from given directory and subdirs::
+
+             with neptune.create_experiment(upload_source_files=get_filepaths(extensions=[&#39;.py&#39;])):
+                 neptune.send_metric(&#39;score&#39;, 0.97)
+
+    &#34;&#34;&#34;
+
+    msg = &#34;&#34;&#34;get_filepaths() is deprecated.
+    Starting from neptune-client==4.9 you can pass [&#39;**/*.py*&#39;, &#39;**/*.yaml*&#39;, &#39;**/*.yml*&#39;]
+    to upload_source_files argument to upload all files with given extensions recursively.
+    Read more https://docs.neptune.ai/neptune-client/docs/project.html
+    get_filepaths() will be removed in future releases.
+    &#34;&#34;&#34;
+    warnings.warn(msg, DeprecationWarning)
+
+    if not extensions:
+        extensions = [&#39;.py&#39;, &#39;.yaml&#39;, &#39;yml&#39;]
+    files = []
+    for r, _, f in os.walk(dirpath):
+        for file in f:
+            if any(file.endswith(ext) for ext in extensions):
+                files.append(os.path.join(r, file))
+    return files
+
+
+def log_pickle(filename, obj, experiment=None):
+    &#34;&#34;&#34;Logs picklable object to Neptune.
+
+    Pickles and logs your object to Neptune under specified filename.
+
+    Args:
+        obj: Picklable object.
+        filename(str): filename under which object will be saved to Neptune.
+        experiment(`neptune.experiments.Experiment`): Neptune experiment.
+
+    Examples:
+        Initialize Neptune::
+
+            import neptune
+            neptune.init(&#39;USER_NAME/PROJECT_NAME&#39;)
+
+        Create RandomForest object and log to Neptune::
+
+            from sklearn.ensemble import RandomForestClassifier
+            from neptunecontrib.api import log_pickle
+
+            neptune.create_experiment()
+
+            rf = RandomForestClassifier()
+            log_pickle(&#39;rf.pkl&#39;, rf)
+    &#34;&#34;&#34;
+    _exp = experiment if experiment else neptune
+    _exp.log_artifact(export_pickle(obj), filename)
+
+
+def export_pickle(obj):
+    from io import BytesIO
+    import pickle
+
+    buffer = BytesIO()
+    pickle.dump(obj, buffer)
+    buffer.seek(0)
+
+    return buffer
+
+
+def get_pickle(filename, experiment):
+    &#34;&#34;&#34;Downloads pickled artifact object from Neptune and returns a Python object.
+
+    Downloads the pickled object from artifacts of given experiment,
+     loads it to memory and returns a Python object.
+
+    Args:
+        filename(str): filename under which object will be saved to Neptune.
+        experiment(`neptune.experiments.Experiment`): Neptune experiment.
+
+    Examples:
+        Initialize Neptune::
+
+            import neptune
+
+            project = neptune.init(&#39;USER_NAME/PROJECT_NAME&#39;)
+
+        Choose Neptune experiment::
+
+            experiment = project.get_experiments(id=[&#39;PRO-101&#39;])[0]
+
+        Get your pickled object from experiment artifacts::
+
+            from neptunecontrib.api import get_pickle
+
+            results = get_pickle(&#39;results.pkl&#39;, experiment)
+    &#34;&#34;&#34;
+    with tempfile.TemporaryDirectory() as d:
+        experiment.download_artifact(filename, d)
+        full_path = os.path.join(d, filename)
+        artifact = joblib.load(full_path)
+    return artifact
+
+
+def pickle_and_log_artifact(obj, filename, experiment=None):
+    message = &#34;&#34;&#34;pickle_and_log_artifact was renamed to log_pickle.
+    You should use ``from neptunecontrib.api import log_pickle``
+    neptunecontrib.api.pickle_and_log_artifact will be removed in future releases.
+    &#34;&#34;&#34;
+    warnings.warn(message)
+
+    log_pickle(filename, obj, experiment)
+
+
+def get_pickled_artifact(experiment, filename):
+    message = &#34;&#34;&#34;get_pickled_artifact was renamed to get_pickle.
+    You should use ``from neptunecontrib.api import get_pickle``
+    neptunecontrib.api.get_pickled_artifact will be removed in future releases.
+    &#34;&#34;&#34;
+    warnings.warn(message)
+
+    get_pickle(filename, experiment)
+
+
+def _prep_time_column(progress_df):
+    progress_df[&#39;timestamp&#39;] = pd.to_datetime(progress_df[&#39;timestamp&#39;])
+    progress_df.sort_values(&#39;timestamp&#39;, inplace=True)
+    progress_df[&#39;timestamp_day&#39;] = [d.date() for d in progress_df[&#39;timestamp&#39;]]
+    return progress_df
+
+
+def _prep_metric_column(progress_df):
+    progress_df[&#39;metric&#39;] = progress_df[&#39;metric&#39;].astype(float)
+    progress_df.dropna(subset=[&#39;metric&#39;], how=&#39;all&#39;, inplace=True)
+    return progress_df
+
+
+def _get_daily_running_time(progress_df):
+    daily_counts = progress_df.groupby(&#39;timestamp_day&#39;).sum()[
+        &#39;running_time&#39;].reset_index()
+    daily_counts.columns = [&#39;timestamp_day&#39;, &#39;running_time_day&#39;]
+    progress_df = pd.merge(progress_df, daily_counts, on=&#39;timestamp_day&#39;)
+    return progress_df
+
+
+def _get_daily_experiment_counts(progress_df):
+    daily_counts = progress_df.groupby(&#39;timestamp_day&#39;).count()[
+        &#39;metric&#39;].reset_index()
+    daily_counts.columns = [&#39;timestamp_day&#39;, &#39;experiment_count_day&#39;]
+    progress_df = pd.merge(progress_df, daily_counts, on=&#39;timestamp_day&#39;)
+    return progress_df
+
+
+def _get_current_best(progress_df):
+    current_best = progress_df[&#39;metric&#39;].cummax()
+    current_best = current_best.fillna(method=&#39;bfill&#39;)
+    progress_df[&#39;metric_best&#39;] = current_best
+    return progress_df</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="neptunecontrib.api.utils.concat_experiments_on_channel"><code class="name flex">
+<span>def <span class="ident">concat_experiments_on_channel</span></span>(<span>experiments, channel_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Combines channel values from experiments into one dataframe.</p>
+<p>This function helps to compare channel values from a list of experiments
+by combining them in a dataframe. E.g: Say we want to extract the <code>log_loss</code>
+channel values for a list of experiments. The resulting dataframe will have
+['id','x_log_loss','y_log_loss'] columns.</p>
+<h2 id="args">Args</h2>
+<p>experiments(list): list of <code>neptune.experiments.Experiment</code> objects.
+channel_name(str): name of the channel for which we want to extract values.</p>
+<h2 id="returns">Returns</h2>
+<p><code>pandas.DataFrame</code>: Dataframe of ['id','x_CHANNEL_NAME','y_CHANNEL_NAME']
+values concatenated from a list of experiments.</p>
+<h2 id="examples">Examples</h2>
+<p>Instantiate a session::</p>
+<pre><code>from neptune.sessions import Session
+session = Session()
+</code></pre>
+<p>Fetch a project and a list of experiments::</p>
+<pre><code>project = session.get_projects('neptune-ai')['neptune-ai/Salt-Detection']
+experiments = project.get_experiments(state=['aborted'], owner=['neyo'], min_running_time=100000)
+</code></pre>
+<p>Construct a channel value dataframe::</p>
+<pre><code>from neptunecontrib.api.utils import concat_experiments_on_channel
+compare_df = concat_experiments_on_channel(experiments,'unet_0 epoch_val iout loss')
+</code></pre>
+<h2 id="note">Note</h2>
+<p>If an experiment in the list of experiments does not contain the channel with a specified channel_name
+it will be omitted.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def concat_experiments_on_channel(experiments, channel_name):
+    &#34;&#34;&#34;Combines channel values from experiments into one dataframe.
+
+    This function helps to compare channel values from a list of experiments
+    by combining them in a dataframe. E.g: Say we want to extract the `log_loss`
+    channel values for a list of experiments. The resulting dataframe will have
+    [&#39;id&#39;,&#39;x_log_loss&#39;,&#39;y_log_loss&#39;] columns.
+
+    Args:
+        experiments(list): list of `neptune.experiments.Experiment` objects.
+        channel_name(str): name of the channel for which we want to extract values.
+
+    Returns:
+        `pandas.DataFrame`: Dataframe of [&#39;id&#39;,&#39;x_CHANNEL_NAME&#39;,&#39;y_CHANNEL_NAME&#39;]
+        values concatenated from a list of experiments.
+
+    Examples:
+        Instantiate a session::
+
+            from neptune.sessions import Session
+            session = Session()
+
+        Fetch a project and a list of experiments::
+
+            project = session.get_projects(&#39;neptune-ai&#39;)[&#39;neptune-ai/Salt-Detection&#39;]
+            experiments = project.get_experiments(state=[&#39;aborted&#39;], owner=[&#39;neyo&#39;], min_running_time=100000)
+
+        Construct a channel value dataframe::
+
+            from neptunecontrib.api.utils import concat_experiments_on_channel
+            compare_df = concat_experiments_on_channel(experiments,&#39;unet_0 epoch_val iout loss&#39;)
+
+    Note:
+        If an experiment in the list of experiments does not contain the channel with a specified channel_name
+        it will be omitted.
+    &#34;&#34;&#34;
+    combined_df = []
+    for experiment in experiments:
+        if channel_name in experiment.get_channels().keys():
+            channel_df = experiment.get_numeric_channels_values(channel_name)
+            channel_df[&#39;id&#39;] = experiment.id
+            combined_df.append(channel_df)
+    combined_df = pd.concat(combined_df, axis=0)
+    return combined_df</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.extract_project_progress_info"><code class="name flex">
+<span>def <span class="ident">extract_project_progress_info</span></span>(<span>leadearboard, metric_colname, time_colname='finished')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Extracts the project progress information from the experiment view.</p>
+<p>This function takes the experiment view (leaderboard) and extracts the information
+that is important for analysing the project progress. It creates additional columns
+<code>metric</code> (actual experiment metric), <code>metric_best</code> (best metric score to date)),
+<code>running_time_day</code> (total amount of experiment running time for a given day in hours),
+'experiment_count_day' (total number of experiments ran in a given day).</p>
+<p>This function is usually used with the <code>plot_project_progress</code> from <code><a title="neptunecontrib.viz.projects" href="../viz/projects.html">neptunecontrib.viz.projects</a></code>.</p>
+<h2 id="args">Args</h2>
+<p>leadearboard(<code>pandas.DataFrame</code>): Dataframe containing the experiment view of the project.
+It can be extracted via <code>project.get_leaderboard()</code>.
+metric_colname(str): name of the column containing the metric of interest.
+time_colname(str): name of the column containing the timestamp. It can be either <code>finished</code>
+or <code>created</code>. Default is 'finished'.</p>
+<h2 id="returns">Returns</h2>
+<p><code>pandas.DataFrame</code>: Dataframe of ['id', 'metric', 'metric_best', 'running_time',
+'running_time_day', 'experiment_count_day', 'owner', 'tags', 'timestamp', 'timestamp_day']
+columns.</p>
+<h2 id="examples">Examples</h2>
+<p>Instantiate a session::</p>
+<pre><code>from neptune.sessions import Session
+session = Session()
+</code></pre>
+<p>Fetch a project and the experiment view of that project::</p>
+<pre><code>project = session.get_projects('neptune-ai')['neptune-ai/Salt-Detection']
+leaderboard = project.get_leaderboard()
+</code></pre>
+<p>Create a progress info dataframe::</p>
+<pre><code>from neptunecontrib.api.utils import extract_project_progress_info
+progress_df = extract_project_progress_info(leadearboard,
+                                            metric_colname='channel_IOUT',
+                                            time_colname='finished')
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_project_progress_info(leadearboard, metric_colname,
+                                  time_colname=&#39;finished&#39;):
+    &#34;&#34;&#34;Extracts the project progress information from the experiment view.
+
+    This function takes the experiment view (leaderboard) and extracts the information
+    that is important for analysing the project progress. It creates additional columns
+    `metric` (actual experiment metric), `metric_best` (best metric score to date)),
+    `running_time_day` (total amount of experiment running time for a given day in hours),
+    &#39;experiment_count_day&#39; (total number of experiments ran in a given day).
+
+    This function is usually used with the `plot_project_progress` from `neptunecontrib.viz.projects`.
+
+    Args:
+        leadearboard(`pandas.DataFrame`): Dataframe containing the experiment view of the project.
+            It can be extracted via `project.get_leaderboard()`.
+        metric_colname(str): name of the column containing the metric of interest.
+        time_colname(str): name of the column containing the timestamp. It can be either `finished`
+            or `created`. Default is &#39;finished&#39;.
+
+    Returns:
+        `pandas.DataFrame`: Dataframe of [&#39;id&#39;, &#39;metric&#39;, &#39;metric_best&#39;, &#39;running_time&#39;,
+        &#39;running_time_day&#39;, &#39;experiment_count_day&#39;, &#39;owner&#39;, &#39;tags&#39;, &#39;timestamp&#39;, &#39;timestamp_day&#39;]
+        columns.
+
+    Examples:
+        Instantiate a session::
+
+            from neptune.sessions import Session
+            session = Session()
+
+        Fetch a project and the experiment view of that project::
+
+            project = session.get_projects(&#39;neptune-ai&#39;)[&#39;neptune-ai/Salt-Detection&#39;]
+            leaderboard = project.get_leaderboard()
+
+        Create a progress info dataframe::
+
+            from neptunecontrib.api.utils import extract_project_progress_info
+            progress_df = extract_project_progress_info(leadearboard,
+                                                        metric_colname=&#39;channel_IOUT&#39;,
+                                                        time_colname=&#39;finished&#39;)
+    &#34;&#34;&#34;
+    system_columns = [&#39;id&#39;, &#39;owner&#39;, &#39;running_time&#39;, &#39;tags&#39;]
+    progress_columns = system_columns + [time_colname, metric_colname]
+    progress_df = leadearboard[progress_columns]
+    progress_df.columns = [&#39;id&#39;, &#39;owner&#39;, &#39;running_time&#39;, &#39;tags&#39;] + [&#39;timestamp&#39;, &#39;metric&#39;]
+
+    progress_df = _prep_time_column(progress_df)
+    progress_df = _prep_metric_column(progress_df)
+
+    progress_df = _get_daily_running_time(progress_df)
+    progress_df = _get_daily_experiment_counts(progress_df)
+    progress_df = _get_current_best(progress_df)
+    progress_df = progress_df[
+        [&#39;id&#39;, &#39;metric&#39;, &#39;metric_best&#39;, &#39;running_time&#39;, &#39;running_time_day&#39;, &#39;experiment_count_day&#39;,
+         &#39;owner&#39;, &#39;tags&#39;, &#39;timestamp&#39;, &#39;timestamp_day&#39;]]
+
+    return progress_df</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.get_channel_columns"><code class="name flex">
+<span>def <span class="ident">get_channel_columns</span></span>(<span>columns)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters leaderboard columns to get the channel column names.</p>
+<h2 id="args">Args</h2>
+<p>columns(iterable): Iterable of leaderboard column names.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of channel column names.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_channel_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the channel column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel column names.
+    &#34;&#34;&#34;
+    return [col for col in columns if col.startswith(&#39;channel_&#39;)]</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.get_parameter_columns"><code class="name flex">
+<span>def <span class="ident">get_parameter_columns</span></span>(<span>columns)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters leaderboard columns to get the parameter column names.</p>
+<h2 id="args">Args</h2>
+<p>columns(iterable): Iterable of leaderboard column names.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of channel parameter names.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_parameter_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the parameter column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel parameter names.
+    &#34;&#34;&#34;
+    return [col for col in columns if col.startswith(&#39;parameter_&#39;)]</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.get_pickle"><code class="name flex">
+<span>def <span class="ident">get_pickle</span></span>(<span>filename, experiment)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Downloads pickled artifact object from Neptune and returns a Python object.</p>
+<p>Downloads the pickled object from artifacts of given experiment,
+loads it to memory and returns a Python object.</p>
+<h2 id="args">Args</h2>
+<p>filename(str): filename under which object will be saved to Neptune.
+experiment(<code>neptune.experiments.Experiment</code>): Neptune experiment.</p>
+<h2 id="examples">Examples</h2>
+<p>Initialize Neptune::</p>
+<pre><code>import neptune
+
+project = neptune.init('USER_NAME/PROJECT_NAME')
+</code></pre>
+<p>Choose Neptune experiment::</p>
+<pre><code>experiment = project.get_experiments(id=['PRO-101'])[0]
+</code></pre>
+<p>Get your pickled object from experiment artifacts::</p>
+<pre><code>from neptunecontrib.api import get_pickle
+
+results = get_pickle('results.pkl', experiment)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pickle(filename, experiment):
+    &#34;&#34;&#34;Downloads pickled artifact object from Neptune and returns a Python object.
+
+    Downloads the pickled object from artifacts of given experiment,
+     loads it to memory and returns a Python object.
+
+    Args:
+        filename(str): filename under which object will be saved to Neptune.
+        experiment(`neptune.experiments.Experiment`): Neptune experiment.
+
+    Examples:
+        Initialize Neptune::
+
+            import neptune
+
+            project = neptune.init(&#39;USER_NAME/PROJECT_NAME&#39;)
+
+        Choose Neptune experiment::
+
+            experiment = project.get_experiments(id=[&#39;PRO-101&#39;])[0]
+
+        Get your pickled object from experiment artifacts::
+
+            from neptunecontrib.api import get_pickle
+
+            results = get_pickle(&#39;results.pkl&#39;, experiment)
+    &#34;&#34;&#34;
+    with tempfile.TemporaryDirectory() as d:
+        experiment.download_artifact(filename, d)
+        full_path = os.path.join(d, filename)
+        artifact = joblib.load(full_path)
+    return artifact</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.get_property_columns"><code class="name flex">
+<span>def <span class="ident">get_property_columns</span></span>(<span>columns)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters leaderboard columns to get the property column names.</p>
+<h2 id="args">Args</h2>
+<p>columns(iterable): Iterable of leaderboard column names.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of channel property names.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_property_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the property column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel property names.
+    &#34;&#34;&#34;
+    return [col for col in columns if col.startswith(&#39;property_&#39;)]</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.get_system_columns"><code class="name flex">
+<span>def <span class="ident">get_system_columns</span></span>(<span>columns)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters leaderboard columns to get the system column names.</p>
+<h2 id="args">Args</h2>
+<p>columns(iterable): Iterable of leaderboard column names.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of channel system names.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_system_columns(columns):
+    &#34;&#34;&#34;Filters leaderboard columns to get the system column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+
+    Returns:
+        list: A list of channel system names.
+    &#34;&#34;&#34;
+    excluded_prefices = [&#39;channel_&#39;, &#39;parameter_&#39;, &#39;property_&#39;]
+    return [col for col in columns if not any([col.startswith(prefix) for
+                                               prefix in excluded_prefices])]</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.log_pickle"><code class="name flex">
+<span>def <span class="ident">log_pickle</span></span>(<span>filename, obj, experiment=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Logs picklable object to Neptune.</p>
+<p>Pickles and logs your object to Neptune under specified filename.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong></dt>
+<dd>Picklable object.</dd>
+</dl>
+<p>filename(str): filename under which object will be saved to Neptune.
+experiment(<code>neptune.experiments.Experiment</code>): Neptune experiment.</p>
+<h2 id="examples">Examples</h2>
+<p>Initialize Neptune::</p>
+<pre><code>import neptune
+neptune.init('USER_NAME/PROJECT_NAME')
+</code></pre>
+<p>Create RandomForest object and log to Neptune::</p>
+<pre><code>from sklearn.ensemble import RandomForestClassifier
+from neptunecontrib.api import log_pickle
+
+neptune.create_experiment()
+
+rf = RandomForestClassifier()
+log_pickle('rf.pkl', rf)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def log_pickle(filename, obj, experiment=None):
+    &#34;&#34;&#34;Logs picklable object to Neptune.
+
+    Pickles and logs your object to Neptune under specified filename.
+
+    Args:
+        obj: Picklable object.
+        filename(str): filename under which object will be saved to Neptune.
+        experiment(`neptune.experiments.Experiment`): Neptune experiment.
+
+    Examples:
+        Initialize Neptune::
+
+            import neptune
+            neptune.init(&#39;USER_NAME/PROJECT_NAME&#39;)
+
+        Create RandomForest object and log to Neptune::
+
+            from sklearn.ensemble import RandomForestClassifier
+            from neptunecontrib.api import log_pickle
+
+            neptune.create_experiment()
+
+            rf = RandomForestClassifier()
+            log_pickle(&#39;rf.pkl&#39;, rf)
+    &#34;&#34;&#34;
+    _exp = experiment if experiment else neptune
+    _exp.log_artifact(export_pickle(obj), filename)</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.api.utils.strip_prefices"><code class="name flex">
+<span>def <span class="ident">strip_prefices</span></span>(<span>columns, prefices)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filters leaderboard columns to get the system column names.</p>
+<h2 id="args">Args</h2>
+<p>columns(iterable): Iterable of leaderboard column names.
+prefices(list): List of prefices to strip. You can choose one of
+['channel_', 'parameter_', 'property_']</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of clean column names.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def strip_prefices(columns, prefices):
+    &#34;&#34;&#34;Filters leaderboard columns to get the system column names.
+
+    Args:
+        columns(iterable): Iterable of leaderboard column names.
+        prefices(list): List of prefices to strip. You can choose one of
+            [&#39;channel_&#39;, &#39;parameter_&#39;, &#39;property_&#39;]
+
+    Returns:
+        list: A list of clean column names.
+    &#34;&#34;&#34;
+    new_columns = []
+    for col in columns:
+        for prefix in prefices:
+            if col.startswith(prefix):
+                col = col.replace(prefix, &#39;&#39;)
+        new_columns.append(col)
+    return new_columns</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="neptunecontrib.api" href="index.html">neptunecontrib.api</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="neptunecontrib.api.utils.concat_experiments_on_channel" href="#neptunecontrib.api.utils.concat_experiments_on_channel">concat_experiments_on_channel</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.extract_project_progress_info" href="#neptunecontrib.api.utils.extract_project_progress_info">extract_project_progress_info</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.get_channel_columns" href="#neptunecontrib.api.utils.get_channel_columns">get_channel_columns</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.get_parameter_columns" href="#neptunecontrib.api.utils.get_parameter_columns">get_parameter_columns</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.get_pickle" href="#neptunecontrib.api.utils.get_pickle">get_pickle</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.get_property_columns" href="#neptunecontrib.api.utils.get_property_columns">get_property_columns</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.get_system_columns" href="#neptunecontrib.api.utils.get_system_columns">get_system_columns</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.log_pickle" href="#neptunecontrib.api.utils.log_pickle">log_pickle</a></code></li>
+<li><code><a title="neptunecontrib.api.utils.strip_prefices" href="#neptunecontrib.api.utils.strip_prefices">strip_prefices</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

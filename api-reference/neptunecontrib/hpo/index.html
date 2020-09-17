@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>neptunecontrib.hpo API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>neptunecontrib.hpo</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#
+# Copyright (c) 2019, Neptune Labs Sp. z o.o.
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+from neptunecontrib.hpo.utils import (
+    df2result,
+    hyperopt2skopt,
+    optuna2skopt,
+    bayes2skopt,
+    hpbandster2skopt,
+)
+
+__all__ = [
+    &#39;hyperopt2skopt&#39;,
+    &#39;df2result&#39;,
+    &#39;optuna2skopt&#39;,
+    &#39;bayes2skopt&#39;,
+    &#39;hpbandster2skopt&#39;
+]</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="neptunecontrib.hpo.utils" href="utils.html">neptunecontrib.hpo.utils</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="neptunecontrib.hpo.bayes2skopt"><code class="name flex">
+<span>def <span class="ident">bayes2skopt</span></span>(<span>bayes_opt)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts BayesOptimization instance to scipy OptimizeResult.</p>
+<p>Helper function that converts the BayesOptimization instance into scipy OptimizeResult
+format.</p>
+<h2 id="args">Args</h2>
+<p>bayes_opt(<code>bayes_opt.Bayesian_optimization.BayesianOptimization</code>): BayesianOptimization instance.</p>
+<h2 id="returns">Returns</h2>
+<p><code>scipy.optimize.optimize.OptimizeResult</code>: Converted OptimizeResult.</p>
+<h2 id="examples">Examples</h2>
+<p>Run BayesOptimize maximization::</p>
+<pre><code>...
+bayes_optimization = BayesianOptimization(objective, space)
+bayes_optimization.maximize(init_points=10, n_iter=100, xi=0.06)
+</code></pre>
+<p>Convert bayes.space.res() object to the OptimizeResult object::</p>
+<pre><code>import neptunecontrib.hpo.utils as hp_utils
+results = hp_utils.bayes2skopt(bayes_optimization)
+</code></pre>
+<h2 id="note">Note</h2>
+<p>Since skopt is always minimizing and BayesianOptimization is maximizing, the objective function values are
+converted into negatives for consistency.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bayes2skopt(bayes_opt):
+    &#34;&#34;&#34;Converts BayesOptimization instance to scipy OptimizeResult.
+
+    Helper function that converts the BayesOptimization instance into scipy OptimizeResult
+    format.
+
+    Args:
+        bayes_opt(`bayes_opt.Bayesian_optimization.BayesianOptimization`): BayesianOptimization instance.
+
+    Returns:
+        `scipy.optimize.optimize.OptimizeResult`: Converted OptimizeResult.
+
+    Examples:
+        Run BayesOptimize maximization::
+
+            ...
+            bayes_optimization = BayesianOptimization(objective, space)
+            bayes_optimization.maximize(init_points=10, n_iter=100, xi=0.06)
+
+        Convert bayes.space.res() object to the OptimizeResult object::
+
+            import neptunecontrib.hpo.utils as hp_utils
+            results = hp_utils.bayes2skopt(bayes_optimization)
+
+    Note:
+        Since skopt is always minimizing and BayesianOptimization is maximizing, the objective function values are
+        converted into negatives for consistency.
+    &#34;&#34;&#34;
+    results = bayes_opt.space.res()
+    results = [{&#39;target&#39;: trial[&#39;target&#39;], **trial[&#39;params&#39;]} for trial in results]
+    results_df = pd.DataFrame(results)
+    results_df[&#39;target&#39;] = -1.0 * results_df[&#39;target&#39;]
+    return df2result(results_df,
+                     metric_col=&#39;target&#39;,
+                     param_cols=[col for col in results_df.columns if col != &#39;target&#39;])</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.hpo.df2result"><code class="name flex">
+<span>def <span class="ident">df2result</span></span>(<span>df, metric_col, param_cols, param_types=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts dataframe with metrics and hyperparameters to the OptimizeResults format.</p>
+<p>It is a helper function that lets you use all the tools that expect OptimizeResult object
+like for example scikit-optimize plot_evaluations function.</p>
+<h2 id="args">Args</h2>
+<p>df(<code>pandas.DataFrame</code>): Dataframe containing metric and hyperparameters.
+metric_col(str): Name of the metric column.
+param_cols(list): Names of the hyperparameter columns.
+param_types(list or None): Optional list of hyperparameter column types.
+By default it will treat all the columns as float but you can also pass str
+for categorical channels. E.g param_types=[float, str, float, float]</p>
+<h2 id="returns">Returns</h2>
+<p><code>scipy.optimize.OptimizeResult</code>: Results object that contains the hyperparameter and metric
+information.</p>
+<h2 id="examples">Examples</h2>
+<p>Instantiate a session::</p>
+<pre><code>from neptune.sessions import Session
+session = Session()
+</code></pre>
+<p>Fetch a project and a list of experiments::</p>
+<pre><code>project = session.get_projects('neptune-ai')['neptune-ai/Home-Credit-Default-Risk']
+leaderboard = project.get_leaderboard(state=['succeeded'], owner=['czakon'])
+</code></pre>
+<p>Comvert the leaderboard dataframe to the <code>ResultOptimize</code> instance taking only the parameters and
+metric that you care about::</p>
+<pre><code>result = df2result(leaderboard,
+    metric_col='channel_ROC_AUC',
+    param_cols=['parameter_lgbm__max_depth',
+                'parameter_lgbm__num_leaves',
+                'parameter_lgbm__min_child_samples'])
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def df2result(df, metric_col, param_cols, param_types=None):
+    &#34;&#34;&#34;Converts dataframe with metrics and hyperparameters to the OptimizeResults format.
+
+    It is a helper function that lets you use all the tools that expect OptimizeResult object
+    like for example scikit-optimize plot_evaluations function.
+
+    Args:
+        df(`pandas.DataFrame`): Dataframe containing metric and hyperparameters.
+        metric_col(str): Name of the metric column.
+        param_cols(list): Names of the hyperparameter columns.
+        param_types(list or None): Optional list of hyperparameter column types.
+            By default it will treat all the columns as float but you can also pass str
+            for categorical channels. E.g param_types=[float, str, float, float]
+
+    Returns:
+        `scipy.optimize.OptimizeResult`: Results object that contains the hyperparameter and metric
+        information.
+
+    Examples:
+        Instantiate a session::
+
+            from neptune.sessions import Session
+            session = Session()
+
+        Fetch a project and a list of experiments::
+
+            project = session.get_projects(&#39;neptune-ai&#39;)[&#39;neptune-ai/Home-Credit-Default-Risk&#39;]
+            leaderboard = project.get_leaderboard(state=[&#39;succeeded&#39;], owner=[&#39;czakon&#39;])
+
+        Comvert the leaderboard dataframe to the `ResultOptimize` instance taking only the parameters and
+        metric that you care about::
+
+            result = df2result(leaderboard,
+                metric_col=&#39;channel_ROC_AUC&#39;,
+                param_cols=[&#39;parameter_lgbm__max_depth&#39;,
+                            &#39;parameter_lgbm__num_leaves&#39;,
+                            &#39;parameter_lgbm__min_child_samples&#39;])
+
+    &#34;&#34;&#34;
+
+    if not param_types:
+        param_types = [float for _ in param_cols]
+
+    df = _prep_df(df, param_cols, param_types)
+    param_space = _convert_to_param_space(df, param_cols, param_types)
+
+    results = OptimizeResult()
+    results.x_iters = df[param_cols].values
+    results.func_vals = df[metric_col].to_list()
+    results.x = results.x_iters[np.argmin(results.func_vals)]
+    results.fun = np.min(results.func_vals)
+    results.space = param_space
+    return results</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.hpo.hpbandster2skopt"><code class="name flex">
+<span>def <span class="ident">hpbandster2skopt</span></span>(<span>results)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts hpbandster results to scipy OptimizeResult.</p>
+<p>Helper function that converts the hpbandster Result instance into scipy OptimizeResult
+format.</p>
+<h2 id="args">Args</h2>
+<p>results(hpbandster.core.Result): Result instance containing parameters and loss values.</p>
+<h2 id="returns">Returns</h2>
+<p><code>scipy.optimize.optimize.OptimizeResult</code>: Converted OptimizeResult.</p>
+<h2 id="examples">Examples</h2>
+<p>Run your hpbandster study::</p>
+<pre><code>optim = BOHB(configspace = worker.get_configspace())
+results = optim.run(n_iterations=100)
+</code></pre>
+<p>Convert hpbandster Result object into the OptimizeResult object::</p>
+<pre><code>import neptunecontrib.hpo.utils as hp_utils
+results = hp_utils.hpbandster2skopt(results)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hpbandster2skopt(results):
+    &#34;&#34;&#34;Converts hpbandster results to scipy OptimizeResult.
+
+    Helper function that converts the hpbandster Result instance into scipy OptimizeResult
+    format.
+
+    Args:
+        results(hpbandster.core.Result): Result instance containing parameters and loss values.
+
+    Returns:
+        `scipy.optimize.optimize.OptimizeResult`: Converted OptimizeResult.
+
+    Examples:
+        Run your hpbandster study::
+
+            optim = BOHB(configspace = worker.get_configspace())
+            results = optim.run(n_iterations=100)
+
+        Convert hpbandster Result object into the OptimizeResult object::
+
+            import neptunecontrib.hpo.utils as hp_utils
+            results = hp_utils.hpbandster2skopt(results)
+    &#34;&#34;&#34;
+    results = results.get_pandas_dataframe()
+    params, loss = results
+    params.drop(columns=&#39;budget&#39;, index=1, inplace=True)
+    results_ = params.copy()
+    results_[&#39;target&#39;] = loss[&#39;loss&#39;]
+    return df2result(results_, metric_col=&#39;target&#39;, param_cols=params.columns)</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.hpo.hyperopt2skopt"><code class="name flex">
+<span>def <span class="ident">hyperopt2skopt</span></span>(<span>trials, space)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts hyperopt trials to scipy OptimizeResult.</p>
+<p>Helper function that converts the hyperopt Trials instance into scipy OptimizeResult
+format.</p>
+<h2 id="args">Args</h2>
+<p>trials(<code>hyperopt.base.Trials</code>): hyperopt trials object which stores training
+information from the fmin() optimization function.
+space(<code>collections.OrderedDict</code>): Hyper parameter space over which
+hyperopt will search. It is important to have this as OrderedDict rather
+than a simple dictionary because otherwise the parameter names will be
+shuffled.</p>
+<h2 id="returns">Returns</h2>
+<p><code>scipy.optimize.optimize.OptimizeResult</code>: Converted OptimizeResult.</p>
+<h2 id="examples">Examples</h2>
+<p>Prepare the space of hyperparameters to search over::</p>
+<pre><code>from hyperopt import hp, tpe, fmin, Trials
+space = OrderedDict(num_leaves=hp.choice('num_leaves', range(10, 60, 1)),
+            max_depth=hp.choice('max_depth', range(2, 30, 1)),
+            feature_fraction=hp.uniform('feature_fraction', 0.1, 0.9)
+                   )
+</code></pre>
+<p>Create an objective and run your hyperopt training::</p>
+<pre><code>trials = Trials()
+_ = fmin(objective, space, trials=trials, algo=tpe.suggest, max_evals=100)
+</code></pre>
+<p>Convert trials object to the OptimizeResult object::</p>
+<pre><code>import neptunecontrib.hpo.utils as hp_utils
+results = hp_utils.hyperopt2skopt(trials, space)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hyperopt2skopt(trials, space):
+    &#34;&#34;&#34;Converts hyperopt trials to scipy OptimizeResult.
+
+    Helper function that converts the hyperopt Trials instance into scipy OptimizeResult
+    format.
+
+    Args:
+        trials(`hyperopt.base.Trials`): hyperopt trials object which stores training
+            information from the fmin() optimization function.
+        space(`collections.OrderedDict`): Hyper parameter space over which
+            hyperopt will search. It is important to have this as OrderedDict rather
+            than a simple dictionary because otherwise the parameter names will be
+            shuffled.
+
+    Returns:
+        `scipy.optimize.optimize.OptimizeResult`: Converted OptimizeResult.
+
+
+    Examples:
+        Prepare the space of hyperparameters to search over::
+
+            from hyperopt import hp, tpe, fmin, Trials
+            space = OrderedDict(num_leaves=hp.choice(&#39;num_leaves&#39;, range(10, 60, 1)),
+                        max_depth=hp.choice(&#39;max_depth&#39;, range(2, 30, 1)),
+                        feature_fraction=hp.uniform(&#39;feature_fraction&#39;, 0.1, 0.9)
+                               )
+
+        Create an objective and run your hyperopt training::
+
+            trials = Trials()
+            _ = fmin(objective, space, trials=trials, algo=tpe.suggest, max_evals=100)
+
+        Convert trials object to the OptimizeResult object::
+
+            import neptunecontrib.hpo.utils as hp_utils
+            results = hp_utils.hyperopt2skopt(trials, space)
+    &#34;&#34;&#34;
+    param_names = list(space.keys())
+    skopt_space = _convert_space_hop_skopt(space)
+    results_ = {}
+    for trial in trials.trials:
+        trial_params = [trial[&#39;misc&#39;][&#39;vals&#39;][name][0] for name in param_names]
+        results_.setdefault(&#39;x_iters&#39;, []).append(trial_params)
+        results_.setdefault(&#39;func_vals&#39;, []).append(trial[&#39;result&#39;][&#39;loss&#39;])
+    optimize_results = OptimizeResult()
+    optimize_results.x = [trials.argmin[name] for name in param_names]
+    optimize_results.x_iters = results_[&#39;x_iters&#39;]
+    optimize_results.fun = trials.best_trial[&#39;result&#39;][&#39;loss&#39;]
+    optimize_results.func_vals = results_[&#39;func_vals&#39;]
+    optimize_results.space = skopt_space
+    return optimize_results</code></pre>
+</details>
+</dd>
+<dt id="neptunecontrib.hpo.optuna2skopt"><code class="name flex">
+<span>def <span class="ident">optuna2skopt</span></span>(<span>study)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts optuna study to scipy OptimizeResult.</p>
+<p>Helper function that converts the optuna Study instance into scipy OptimizeResult
+format.</p>
+<h2 id="args">Args</h2>
+<p>study(<code>optuna.study.Study</code>): Study isntance containing scores and hyperparameters.</p>
+<h2 id="returns">Returns</h2>
+<p><code>scipy.optimize.optimize.OptimizeResult</code>: Converted OptimizeResult.</p>
+<h2 id="examples">Examples</h2>
+<p>Run your optuna study::</p>
+<pre><code>study = optuna.create_study()
+study.optimize(objective, n_trials=100)
+</code></pre>
+<p>Convert trials_dataframe object to the OptimizeResult object::</p>
+<pre><code>import neptunecontrib.hpo.utils as hp_utils
+results = hp_utils.optuna2skopt(study)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def optuna2skopt(study):
+    &#34;&#34;&#34;Converts optuna study to scipy OptimizeResult.
+
+    Helper function that converts the optuna Study instance into scipy OptimizeResult
+    format.
+
+    Args:
+        study(`optuna.study.Study`): Study isntance containing scores and hyperparameters.
+
+    Returns:
+        `scipy.optimize.optimize.OptimizeResult`: Converted OptimizeResult.
+
+    Examples:
+        Run your optuna study::
+
+            study = optuna.create_study()
+            study.optimize(objective, n_trials=100)
+
+        Convert trials_dataframe object to the OptimizeResult object::
+
+            import neptunecontrib.hpo.utils as hp_utils
+            results = hp_utils.optuna2skopt(study)
+    &#34;&#34;&#34;
+    results = study.trials_dataframe()
+    results_ = results[&#39;params&#39;]
+    results_[&#39;target&#39;] = results[&#39;value&#39;]
+    return df2result(results_,
+                     metric_col=&#39;target&#39;,
+                     param_cols=[col for col in results_.columns if col != &#39;target&#39;])</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="neptunecontrib" href="../index.html">neptunecontrib</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="neptunecontrib.hpo.utils" href="utils.html">neptunecontrib.hpo.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="neptunecontrib.hpo.bayes2skopt" href="#neptunecontrib.hpo.bayes2skopt">bayes2skopt</a></code></li>
+<li><code><a title="neptunecontrib.hpo.df2result" href="#neptunecontrib.hpo.df2result">df2result</a></code></li>
+<li><code><a title="neptunecontrib.hpo.hpbandster2skopt" href="#neptunecontrib.hpo.hpbandster2skopt">hpbandster2skopt</a></code></li>
+<li><code><a title="neptunecontrib.hpo.hyperopt2skopt" href="#neptunecontrib.hpo.hyperopt2skopt">hyperopt2skopt</a></code></li>
+<li><code><a title="neptunecontrib.hpo.optuna2skopt" href="#neptunecontrib.hpo.optuna2skopt">optuna2skopt</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

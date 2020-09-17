@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>optuna.integration.skopt API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>optuna.integration.skopt</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import copy
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Tuple
+
+import numpy as np
+
+import optuna
+from optuna._experimental import experimental
+from optuna._imports import try_import
+from optuna import distributions
+from optuna import samplers
+from optuna.samplers import BaseSampler
+from optuna.study import Study
+from optuna.study import StudyDirection
+from optuna.trial import FrozenTrial
+from optuna.trial import TrialState
+
+with try_import() as _imports:
+    import skopt
+    from skopt.space import space
+
+
+class SkoptSampler(BaseSampler):
+    &#34;&#34;&#34;Sampler using Scikit-Optimize as the backend.
+
+    Example:
+
+        Optimize a simple quadratic function by using :class:`~optuna.integration.SkoptSampler`.
+
+        .. testcode::
+
+                import optuna
+
+                def objective(trial):
+                    x = trial.suggest_uniform(&#39;x&#39;, -10, 10)
+                    y = trial.suggest_int(&#39;y&#39;, 0, 10)
+                    return x**2 + y
+
+                sampler = optuna.integration.SkoptSampler()
+                study = optuna.create_study(sampler=sampler)
+                study.optimize(objective, n_trials=10)
+
+    Args:
+        independent_sampler:
+            A :class:`~optuna.samplers.BaseSampler` instance that is used for independent
+            sampling. The parameters not contained in the relative search space are sampled
+            by this sampler.
+            The search space for :class:`~optuna.integration.SkoptSampler` is determined by
+            :func:`~optuna.samplers.intersection_search_space()`.
+
+            If :obj:`None` is specified, :class:`~optuna.samplers.RandomSampler` is used
+            as the default.
+
+            .. seealso::
+                :class:`optuna.samplers` module provides built-in independent samplers
+                such as :class:`~optuna.samplers.RandomSampler` and
+                :class:`~optuna.samplers.TPESampler`.
+
+        warn_independent_sampling:
+            If this is :obj:`True`, a warning message is emitted when
+            the value of a parameter is sampled by using an independent sampler.
+
+            Note that the parameters of the first trial in a study are always sampled
+            via an independent sampler, so no warning messages are emitted in this case.
+
+        skopt_kwargs:
+            Keyword arguments passed to the constructor of
+            `skopt.Optimizer &lt;https://scikit-optimize.github.io/#skopt.Optimizer&gt;`_
+            class.
+
+            Note that ``dimensions`` argument in ``skopt_kwargs`` will be ignored
+            because it is added by :class:`~optuna.integration.SkoptSampler` automatically.
+
+        n_startup_trials:
+            The independent sampling is used until the given number of trials finish in the
+            same study.
+
+        consider_pruned_trials:
+            If this is :obj:`True`, the PRUNED trials are considered for sampling.
+
+            .. note::
+                Added in v2.0.0 as an experimental feature. The interface may change in newer
+                versions without prior notice. See
+                https://github.com/optuna/optuna/releases/tag/v2.0.0.
+
+            .. note::
+                As the number of trials :math:`n` increases, each sampling takes longer and longer
+                on a scale of :math:`O(n^3)`. And, if this is :obj:`True`, the number of trials
+                will increase. So, it is suggested to set this flag :obj:`False` when each
+                evaluation of the objective function is relatively faster than each sampling. On
+                the other hand, it is suggested to set this flag :obj:`True` when each evaluation
+                of the objective function is relatively slower than each sampling.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        independent_sampler: Optional[BaseSampler] = None,
+        warn_independent_sampling: bool = True,
+        skopt_kwargs: Optional[Dict[str, Any]] = None,
+        n_startup_trials: int = 1,
+        *,
+        consider_pruned_trials: bool = False
+    ) -&gt; None:
+
+        _imports.check()
+
+        self._skopt_kwargs = skopt_kwargs or {}
+        if &#34;dimensions&#34; in self._skopt_kwargs:
+            del self._skopt_kwargs[&#34;dimensions&#34;]
+
+        self._independent_sampler = independent_sampler or samplers.RandomSampler()
+        self._warn_independent_sampling = warn_independent_sampling
+        self._n_startup_trials = n_startup_trials
+        self._search_space = samplers.IntersectionSearchSpace()
+        self._consider_pruned_trials = consider_pruned_trials
+
+        if self._consider_pruned_trials:
+            self._raise_experimental_warning_for_consider_pruned_trials()
+
+    @experimental(&#34;2.0.0&#34;, name=&#34;`consider_pruned_trials = True` in SkoptSampler&#34;)
+    def _raise_experimental_warning_for_consider_pruned_trials(self) -&gt; None:
+        pass
+
+    def reseed_rng(self) -&gt; None:
+
+        self._independent_sampler.reseed_rng()
+
+    def infer_relative_search_space(
+        self, study: Study, trial: FrozenTrial
+    ) -&gt; Dict[str, distributions.BaseDistribution]:
+
+        search_space = {}
+        for name, distribution in self._search_space.calculate(study).items():
+            if distribution.single():
+                if not isinstance(distribution, distributions.CategoricalDistribution):
+                    # `skopt` cannot handle non-categorical distributions that contain just
+                    # a single value, so we skip this distribution.
+                    #
+                    # Note that `Trial` takes care of this distribution during suggestion.
+                    continue
+
+            search_space[name] = distribution
+
+        return search_space
+
+    def sample_relative(
+        self,
+        study: Study,
+        trial: FrozenTrial,
+        search_space: Dict[str, distributions.BaseDistribution],
+    ) -&gt; Dict[str, Any]:
+
+        if len(search_space) == 0:
+            return {}
+
+        complete_trials = self._get_trials(study)
+        if len(complete_trials) &lt; self._n_startup_trials:
+            return {}
+
+        optimizer = _Optimizer(search_space, self._skopt_kwargs)
+        optimizer.tell(study, complete_trials)
+        return optimizer.ask()
+
+    def sample_independent(
+        self,
+        study: Study,
+        trial: FrozenTrial,
+        param_name: str,
+        param_distribution: distributions.BaseDistribution,
+    ) -&gt; Any:
+
+        if self._warn_independent_sampling:
+            complete_trials = self._get_trials(study)
+            if len(complete_trials) &gt;= self._n_startup_trials:
+                self._log_independent_sampling(trial, param_name)
+
+        return self._independent_sampler.sample_independent(
+            study, trial, param_name, param_distribution
+        )
+
+    def _log_independent_sampling(self, trial: FrozenTrial, param_name: str) -&gt; None:
+
+        logger = optuna.logging.get_logger(__name__)
+        logger.warning(
+            &#34;The parameter &#39;{}&#39; in trial#{} is sampled independently &#34;
+            &#34;by using `{}` instead of `SkoptSampler` &#34;
+            &#34;(optimization performance may be degraded). &#34;
+            &#34;You can suppress this warning by setting `warn_independent_sampling` &#34;
+            &#34;to `False` in the constructor of `SkoptSampler`, &#34;
+            &#34;if this independent sampling is intended behavior.&#34;.format(
+                param_name, trial.number, self._independent_sampler.__class__.__name__
+            )
+        )
+
+    def _get_trials(self, study: Study) -&gt; List[FrozenTrial]:
+        complete_trials = []
+        for t in study.get_trials(deepcopy=False):
+            if t.state == TrialState.COMPLETE:
+                complete_trials.append(t)
+            elif (
+                t.state == TrialState.PRUNED
+                and len(t.intermediate_values) &gt; 0
+                and self._consider_pruned_trials
+            ):
+                _, value = max(t.intermediate_values.items())
+                if value is None:
+                    continue
+                # We rewrite the value of the trial `t` for sampling, so we need a deepcopy.
+                copied_t = copy.deepcopy(t)
+                copied_t.value = value
+                complete_trials.append(copied_t)
+        return complete_trials
+
+
+class _Optimizer(object):
+    def __init__(
+        self, search_space: Dict[str, distributions.BaseDistribution], skopt_kwargs: Dict[str, Any]
+    ) -&gt; None:
+
+        self._search_space = search_space
+
+        dimensions = []
+        for name, distribution in sorted(self._search_space.items()):
+            if isinstance(distribution, distributions.UniformDistribution):
+                # Convert the upper bound from exclusive (optuna) to inclusive (skopt).
+                high = np.nextafter(distribution.high, float(&#34;-inf&#34;))
+                dimension = space.Real(distribution.low, high)
+            elif isinstance(distribution, distributions.LogUniformDistribution):
+                # Convert the upper bound from exclusive (optuna) to inclusive (skopt).
+                high = np.nextafter(distribution.high, float(&#34;-inf&#34;))
+                dimension = space.Real(distribution.low, high, prior=&#34;log-uniform&#34;)
+            elif isinstance(distribution, distributions.IntUniformDistribution):
+                count = (distribution.high - distribution.low) // distribution.step
+                dimension = space.Integer(0, count)
+            elif isinstance(distribution, distributions.IntLogUniformDistribution):
+                low = distribution.low - 0.5
+                high = distribution.high + 0.5
+                dimension = space.Real(low, high, prior=&#34;log-uniform&#34;)
+            elif isinstance(distribution, distributions.DiscreteUniformDistribution):
+                count = int((distribution.high - distribution.low) // distribution.q)
+                dimension = space.Integer(0, count)
+            elif isinstance(distribution, distributions.CategoricalDistribution):
+                dimension = space.Categorical(distribution.choices)
+            else:
+                raise NotImplementedError(
+                    &#34;The distribution {} is not implemented.&#34;.format(distribution)
+                )
+
+            dimensions.append(dimension)
+
+        self._optimizer = skopt.Optimizer(dimensions, **skopt_kwargs)
+
+    def tell(self, study: Study, complete_trials: List[FrozenTrial]) -&gt; None:
+
+        xs = []
+        ys = []
+
+        for trial in complete_trials:
+            if not self._is_compatible(trial):
+                continue
+
+            x, y = self._complete_trial_to_skopt_observation(study, trial)
+            xs.append(x)
+            ys.append(y)
+
+        self._optimizer.tell(xs, ys)
+
+    def ask(self) -&gt; Dict[str, Any]:
+
+        params = {}
+        param_values = self._optimizer.ask()
+        for (name, distribution), value in zip(sorted(self._search_space.items()), param_values):
+            if isinstance(distribution, distributions.DiscreteUniformDistribution):
+                value = value * distribution.q + distribution.low
+            if isinstance(distribution, distributions.IntUniformDistribution):
+                value = value * distribution.step + distribution.low
+            if isinstance(distribution, distributions.IntLogUniformDistribution):
+                value = int(np.round(value))
+                value = min(max(value, distribution.low), distribution.high)
+
+            params[name] = value
+
+        return params
+
+    def _is_compatible(self, trial: FrozenTrial) -&gt; bool:
+
+        # Thanks to `intersection_search_space()` function, in sequential optimization,
+        # the parameters of complete trials are always compatible with the search space.
+        #
+        # However, in distributed optimization, incompatible trials may complete on a worker
+        # just after an intersection search space is calculated on another worker.
+
+        for name, distribution in self._search_space.items():
+            if name not in trial.params:
+                return False
+
+            distributions.check_distribution_compatibility(distribution, trial.distributions[name])
+            param_value = trial.params[name]
+            param_internal_value = distribution.to_internal_repr(param_value)
+            if not distribution._contains(param_internal_value):
+                return False
+
+        return True
+
+    def _complete_trial_to_skopt_observation(
+        self, study: Study, trial: FrozenTrial
+    ) -&gt; Tuple[List[Any], float]:
+
+        param_values = []
+        for name, distribution in sorted(self._search_space.items()):
+            param_value = trial.params[name]
+
+            if isinstance(distribution, distributions.DiscreteUniformDistribution):
+                param_value = (param_value - distribution.low) // distribution.q
+            if isinstance(distribution, distributions.IntUniformDistribution):
+                param_value = (param_value - distribution.low) // distribution.step
+
+            param_values.append(param_value)
+
+        value = trial.value
+        assert value is not None
+
+        if study.direction == StudyDirection.MAXIMIZE:
+            value = -value
+
+        return param_values, value</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="optuna.integration.skopt.SkoptSampler"><code class="flex name class">
+<span>class <span class="ident">SkoptSampler</span></span>
+<span>(</span><span>independent_sampler: Union[optuna.samplers._base.BaseSampler, NoneType] = None, warn_independent_sampling: bool = True, skopt_kwargs: Union[Dict[str, Any], NoneType] = None, n_startup_trials: int = 1, *, consider_pruned_trials: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sampler using Scikit-Optimize as the backend.</p>
+<h2 id="example">Example</h2>
+<p>Optimize a simple quadratic function by using :class:<code>~optuna.integration.SkoptSampler</code>.</p>
+<div class="admonition testcode">
+<p class="admonition-title">Testcode</p>
+<p>import optuna</p>
+<p>def objective(trial):
+x = trial.suggest_uniform('x', -10, 10)
+y = trial.suggest_int('y', 0, 10)
+return x**2 + y</p>
+<p>sampler = optuna.integration.SkoptSampler()
+study = optuna.create_study(sampler=sampler)
+study.optimize(objective, n_trials=10)</p>
+</div>
+<h2 id="args">Args</h2>
+<p>independent_sampler:
+A :class:<code>~optuna.samplers.BaseSampler</code> instance that is used for independent
+sampling. The parameters not contained in the relative search space are sampled
+by this sampler.
+The search space for :class:<code>~optuna.integration.SkoptSampler</code> is determined by
+:func:<code>~optuna.samplers.intersection_search_space()</code>.</p>
+<pre><code>If :obj:&lt;code&gt;None&lt;/code&gt; is specified, :class:`~optuna.samplers.RandomSampler` is used
+as the default.
+
+!!! seealso "Seealso"
+    :class:&lt;code&gt;&lt;a title="optuna.samplers" href="../samplers/index.html"&gt;optuna.samplers&lt;/a&gt;&lt;/code&gt; module provides built-in independent samplers
+    such as :class:`~optuna.samplers.RandomSampler` and
+    :class:`~optuna.samplers.TPESampler`.
+</code></pre>
+<p>warn_independent_sampling:
+If this is :obj:<code>True</code>, a warning message is emitted when
+the value of a parameter is sampled by using an independent sampler.</p>
+<pre><code>Note that the parameters of the first trial in a study are always sampled
+via an independent sampler, so no warning messages are emitted in this case.
+</code></pre>
+<p>skopt_kwargs:
+Keyword arguments passed to the constructor of
+<code>skopt.Optimizer &lt;https://scikit-optimize.github.io/#skopt.Optimizer&gt;</code>_
+class.</p>
+<pre><code>Note that &lt;code&gt;dimensions&lt;/code&gt; argument in &lt;code&gt;skopt\_kwargs&lt;/code&gt; will be ignored
+because it is added by :class:`~optuna.integration.SkoptSampler` automatically.
+</code></pre>
+<p>n_startup_trials:
+The independent sampling is used until the given number of trials finish in the
+same study.</p>
+<p>consider_pruned_trials:
+If this is :obj:<code>True</code>, the PRUNED trials are considered for sampling.</p>
+<pre><code>!!! note "Note"
+    Added in v2.0.0 as an experimental feature. The interface may change in newer
+    versions without prior notice. See
+    &lt;https://github.com/optuna/optuna/releases/tag/v2.0.0.&gt;
+
+!!! note "Note"
+    As the number of trials :math:&lt;code&gt;n&lt;/code&gt; increases, each sampling takes longer and longer
+    on a scale of :math:`O(n^3)`. And, if this is :obj:&lt;code&gt;True&lt;/code&gt;, the number of trials
+    will increase. So, it is suggested to set this flag :obj:&lt;code&gt;False&lt;/code&gt; when each
+    evaluation of the objective function is relatively faster than each sampling. On
+    the other hand, it is suggested to set this flag :obj:&lt;code&gt;True&lt;/code&gt; when each evaluation
+    of the objective function is relatively slower than each sampling.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SkoptSampler(BaseSampler):
+    &#34;&#34;&#34;Sampler using Scikit-Optimize as the backend.
+
+    Example:
+
+        Optimize a simple quadratic function by using :class:`~optuna.integration.SkoptSampler`.
+
+        .. testcode::
+
+                import optuna
+
+                def objective(trial):
+                    x = trial.suggest_uniform(&#39;x&#39;, -10, 10)
+                    y = trial.suggest_int(&#39;y&#39;, 0, 10)
+                    return x**2 + y
+
+                sampler = optuna.integration.SkoptSampler()
+                study = optuna.create_study(sampler=sampler)
+                study.optimize(objective, n_trials=10)
+
+    Args:
+        independent_sampler:
+            A :class:`~optuna.samplers.BaseSampler` instance that is used for independent
+            sampling. The parameters not contained in the relative search space are sampled
+            by this sampler.
+            The search space for :class:`~optuna.integration.SkoptSampler` is determined by
+            :func:`~optuna.samplers.intersection_search_space()`.
+
+            If :obj:`None` is specified, :class:`~optuna.samplers.RandomSampler` is used
+            as the default.
+
+            .. seealso::
+                :class:`optuna.samplers` module provides built-in independent samplers
+                such as :class:`~optuna.samplers.RandomSampler` and
+                :class:`~optuna.samplers.TPESampler`.
+
+        warn_independent_sampling:
+            If this is :obj:`True`, a warning message is emitted when
+            the value of a parameter is sampled by using an independent sampler.
+
+            Note that the parameters of the first trial in a study are always sampled
+            via an independent sampler, so no warning messages are emitted in this case.
+
+        skopt_kwargs:
+            Keyword arguments passed to the constructor of
+            `skopt.Optimizer &lt;https://scikit-optimize.github.io/#skopt.Optimizer&gt;`_
+            class.
+
+            Note that ``dimensions`` argument in ``skopt_kwargs`` will be ignored
+            because it is added by :class:`~optuna.integration.SkoptSampler` automatically.
+
+        n_startup_trials:
+            The independent sampling is used until the given number of trials finish in the
+            same study.
+
+        consider_pruned_trials:
+            If this is :obj:`True`, the PRUNED trials are considered for sampling.
+
+            .. note::
+                Added in v2.0.0 as an experimental feature. The interface may change in newer
+                versions without prior notice. See
+                https://github.com/optuna/optuna/releases/tag/v2.0.0.
+
+            .. note::
+                As the number of trials :math:`n` increases, each sampling takes longer and longer
+                on a scale of :math:`O(n^3)`. And, if this is :obj:`True`, the number of trials
+                will increase. So, it is suggested to set this flag :obj:`False` when each
+                evaluation of the objective function is relatively faster than each sampling. On
+                the other hand, it is suggested to set this flag :obj:`True` when each evaluation
+                of the objective function is relatively slower than each sampling.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        independent_sampler: Optional[BaseSampler] = None,
+        warn_independent_sampling: bool = True,
+        skopt_kwargs: Optional[Dict[str, Any]] = None,
+        n_startup_trials: int = 1,
+        *,
+        consider_pruned_trials: bool = False
+    ) -&gt; None:
+
+        _imports.check()
+
+        self._skopt_kwargs = skopt_kwargs or {}
+        if &#34;dimensions&#34; in self._skopt_kwargs:
+            del self._skopt_kwargs[&#34;dimensions&#34;]
+
+        self._independent_sampler = independent_sampler or samplers.RandomSampler()
+        self._warn_independent_sampling = warn_independent_sampling
+        self._n_startup_trials = n_startup_trials
+        self._search_space = samplers.IntersectionSearchSpace()
+        self._consider_pruned_trials = consider_pruned_trials
+
+        if self._consider_pruned_trials:
+            self._raise_experimental_warning_for_consider_pruned_trials()
+
+    @experimental(&#34;2.0.0&#34;, name=&#34;`consider_pruned_trials = True` in SkoptSampler&#34;)
+    def _raise_experimental_warning_for_consider_pruned_trials(self) -&gt; None:
+        pass
+
+    def reseed_rng(self) -&gt; None:
+
+        self._independent_sampler.reseed_rng()
+
+    def infer_relative_search_space(
+        self, study: Study, trial: FrozenTrial
+    ) -&gt; Dict[str, distributions.BaseDistribution]:
+
+        search_space = {}
+        for name, distribution in self._search_space.calculate(study).items():
+            if distribution.single():
+                if not isinstance(distribution, distributions.CategoricalDistribution):
+                    # `skopt` cannot handle non-categorical distributions that contain just
+                    # a single value, so we skip this distribution.
+                    #
+                    # Note that `Trial` takes care of this distribution during suggestion.
+                    continue
+
+            search_space[name] = distribution
+
+        return search_space
+
+    def sample_relative(
+        self,
+        study: Study,
+        trial: FrozenTrial,
+        search_space: Dict[str, distributions.BaseDistribution],
+    ) -&gt; Dict[str, Any]:
+
+        if len(search_space) == 0:
+            return {}
+
+        complete_trials = self._get_trials(study)
+        if len(complete_trials) &lt; self._n_startup_trials:
+            return {}
+
+        optimizer = _Optimizer(search_space, self._skopt_kwargs)
+        optimizer.tell(study, complete_trials)
+        return optimizer.ask()
+
+    def sample_independent(
+        self,
+        study: Study,
+        trial: FrozenTrial,
+        param_name: str,
+        param_distribution: distributions.BaseDistribution,
+    ) -&gt; Any:
+
+        if self._warn_independent_sampling:
+            complete_trials = self._get_trials(study)
+            if len(complete_trials) &gt;= self._n_startup_trials:
+                self._log_independent_sampling(trial, param_name)
+
+        return self._independent_sampler.sample_independent(
+            study, trial, param_name, param_distribution
+        )
+
+    def _log_independent_sampling(self, trial: FrozenTrial, param_name: str) -&gt; None:
+
+        logger = optuna.logging.get_logger(__name__)
+        logger.warning(
+            &#34;The parameter &#39;{}&#39; in trial#{} is sampled independently &#34;
+            &#34;by using `{}` instead of `SkoptSampler` &#34;
+            &#34;(optimization performance may be degraded). &#34;
+            &#34;You can suppress this warning by setting `warn_independent_sampling` &#34;
+            &#34;to `False` in the constructor of `SkoptSampler`, &#34;
+            &#34;if this independent sampling is intended behavior.&#34;.format(
+                param_name, trial.number, self._independent_sampler.__class__.__name__
+            )
+        )
+
+    def _get_trials(self, study: Study) -&gt; List[FrozenTrial]:
+        complete_trials = []
+        for t in study.get_trials(deepcopy=False):
+            if t.state == TrialState.COMPLETE:
+                complete_trials.append(t)
+            elif (
+                t.state == TrialState.PRUNED
+                and len(t.intermediate_values) &gt; 0
+                and self._consider_pruned_trials
+            ):
+                _, value = max(t.intermediate_values.items())
+                if value is None:
+                    continue
+                # We rewrite the value of the trial `t` for sampling, so we need a deepcopy.
+                copied_t = copy.deepcopy(t)
+                copied_t.value = value
+                complete_trials.append(copied_t)
+        return complete_trials</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>optuna.samplers._base.BaseSampler</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="optuna.integration.skopt.SkoptSampler.infer_relative_search_space"><code class="name flex">
+<span>def <span class="ident">infer_relative_search_space</span></span>(<span>self, study: <a title="optuna.study.Study" href="../study.html#optuna.study.Study">Study</a>, trial: optuna.trial._frozen.FrozenTrial) ‑> Dict[str, <a title="optuna.distributions.BaseDistribution" href="../distributions.html#optuna.distributions.BaseDistribution">BaseDistribution</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Infer the search space that will be used by relative sampling in the target trial.</p>
+<p>This method is called right before :func:<code>~optuna.samplers.BaseSampler.sample_relative</code>
+method, and the search space returned by this method is pass to it. The parameters not
+contained in the search space will be sampled by using
+:func:<code>~optuna.samplers.BaseSampler.sample_independent</code> method.</p>
+<h2 id="args">Args</h2>
+<p>study:
+Target study object.
+trial:
+Target trial object.
+Take a copy before modifying this object.</p>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
+<p>Please refer to :func:<code>~optuna.samplers.intersection_search_space</code> as an
+implementation of :func:<code>~optuna.samplers.BaseSampler.infer_relative_search_space</code>.</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def infer_relative_search_space(
+    self, study: Study, trial: FrozenTrial
+) -&gt; Dict[str, distributions.BaseDistribution]:
+
+    search_space = {}
+    for name, distribution in self._search_space.calculate(study).items():
+        if distribution.single():
+            if not isinstance(distribution, distributions.CategoricalDistribution):
+                # `skopt` cannot handle non-categorical distributions that contain just
+                # a single value, so we skip this distribution.
+                #
+                # Note that `Trial` takes care of this distribution during suggestion.
+                continue
+
+        search_space[name] = distribution
+
+    return search_space</code></pre>
+</details>
+</dd>
+<dt id="optuna.integration.skopt.SkoptSampler.reseed_rng"><code class="name flex">
+<span>def <span class="ident">reseed_rng</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reseed sampler's random number generator.</p>
+<p>This method is called by the :class:<code>~optuna.study.Study</code> instance if trials are executed
+in parallel with the option <code>n_jobs&gt;1</code>. In that case, the sampler instance will be
+replicated including the state of the random number generator, and they may suggest the
+same values. To prevent this issue, this method assigns a different seed to each random
+number generator.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reseed_rng(self) -&gt; None:
+
+    self._independent_sampler.reseed_rng()</code></pre>
+</details>
+</dd>
+<dt id="optuna.integration.skopt.SkoptSampler.sample_independent"><code class="name flex">
+<span>def <span class="ident">sample_independent</span></span>(<span>self, study: <a title="optuna.study.Study" href="../study.html#optuna.study.Study">Study</a>, trial: optuna.trial._frozen.FrozenTrial, param_name: str, param_distribution: <a title="optuna.distributions.BaseDistribution" href="../distributions.html#optuna.distributions.BaseDistribution">BaseDistribution</a>) ‑> Any</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sample a parameter for a given distribution.</p>
+<p>This method is called only for the parameters not contained in the search space returned
+by :func:<code>~optuna.samplers.BaseSampler.sample_relative</code> method. This method is suitable
+for sampling algorithms that do not use relationship between parameters such as random
+sampling and TPE.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The failed trials are ignored by any build-in samplers when they sample new
+parameters. Thus, failed trials are regarded as deleted in the samplers'
+perspective.</p>
+</div>
+<h2 id="args">Args</h2>
+<p>study:
+Target study object.
+trial:
+Target trial object.
+Take a copy before modifying this object.
+param_name:
+Name of the sampled parameter.
+param_distribution:
+Distribution object that specifies a prior and/or scale of the sampling algorithm.</p>
+<h2 id="returns">Returns</h2>
+<p>A parameter value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sample_independent(
+    self,
+    study: Study,
+    trial: FrozenTrial,
+    param_name: str,
+    param_distribution: distributions.BaseDistribution,
+) -&gt; Any:
+
+    if self._warn_independent_sampling:
+        complete_trials = self._get_trials(study)
+        if len(complete_trials) &gt;= self._n_startup_trials:
+            self._log_independent_sampling(trial, param_name)
+
+    return self._independent_sampler.sample_independent(
+        study, trial, param_name, param_distribution
+    )</code></pre>
+</details>
+</dd>
+<dt id="optuna.integration.skopt.SkoptSampler.sample_relative"><code class="name flex">
+<span>def <span class="ident">sample_relative</span></span>(<span>self, study: <a title="optuna.study.Study" href="../study.html#optuna.study.Study">Study</a>, trial: optuna.trial._frozen.FrozenTrial, search_space: Dict[str, <a title="optuna.distributions.BaseDistribution" href="../distributions.html#optuna.distributions.BaseDistribution">BaseDistribution</a>]) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sample parameters in a given search space.</p>
+<p>This method is called once at the beginning of each trial, i.e., right before the
+evaluation of the objective function. This method is suitable for sampling algorithms
+that use relationship between parameters such as Gaussian Process and CMA-ES.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The failed trials are ignored by any build-in samplers when they sample new
+parameters. Thus, failed trials are regarded as deleted in the samplers'
+perspective.</p>
+</div>
+<h2 id="args">Args</h2>
+<p>study:
+Target study object.
+trial:
+Target trial object.
+Take a copy before modifying this object.
+search_space:
+The search space returned by
+:func:<code>~optuna.samplers.BaseSampler.infer_relative_search_space</code>.</p>
+<h2 id="returns">Returns</h2>
+<p>A dictionary containing the parameter names and the values.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sample_relative(
+    self,
+    study: Study,
+    trial: FrozenTrial,
+    search_space: Dict[str, distributions.BaseDistribution],
+) -&gt; Dict[str, Any]:
+
+    if len(search_space) == 0:
+        return {}
+
+    complete_trials = self._get_trials(study)
+    if len(complete_trials) &lt; self._n_startup_trials:
+        return {}
+
+    optimizer = _Optimizer(search_space, self._skopt_kwargs)
+    optimizer.tell(study, complete_trials)
+    return optimizer.ask()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="optuna.integration" href="index.html">optuna.integration</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="optuna.integration.skopt.SkoptSampler" href="#optuna.integration.skopt.SkoptSampler">SkoptSampler</a></code></h4>
+<ul class="">
+<li><code><a title="optuna.integration.skopt.SkoptSampler.infer_relative_search_space" href="#optuna.integration.skopt.SkoptSampler.infer_relative_search_space">infer_relative_search_space</a></code></li>
+<li><code><a title="optuna.integration.skopt.SkoptSampler.reseed_rng" href="#optuna.integration.skopt.SkoptSampler.reseed_rng">reseed_rng</a></code></li>
+<li><code><a title="optuna.integration.skopt.SkoptSampler.sample_independent" href="#optuna.integration.skopt.SkoptSampler.sample_independent">sample_independent</a></code></li>
+<li><code><a title="optuna.integration.skopt.SkoptSampler.sample_relative" href="#optuna.integration.skopt.SkoptSampler.sample_relative">sample_relative</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

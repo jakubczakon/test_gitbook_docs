@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>neptunecontrib.viz.parallel_coordinates_plot API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>neptunecontrib.viz.parallel_coordinates_plot</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#
+# Copyright (c) 2020, Neptune Labs Sp. z o.o.
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+import os
+from collections import Counter
+
+import hiplot as hip
+import neptune
+
+__all__ = [
+    &#39;make_parallel_coordinates_plot&#39;,
+]
+
+def make_parallel_coordinates_plot(html_file_path=None,
+                                   metrics=False,
+                                   text_logs=False,
+                                   params=True,
+                                   properties=False,
+                                   experiment_id=None,
+                                   state=None,
+                                   owner=None,
+                                   tag=None,
+                                   min_running_time=None):
+    &#34;&#34;&#34;Visualize experiments on the parallel coordinates plot.
+
+    This function, when executed in Notebook, displays interactive parallel coordinates plot in the cell&#39;s output.
+    Another option is to save visualization to the standalone html file.
+    You can also inspect the lineage of experiments.
+
+    **See** `example &lt;https://neptune-contrib.readthedocs.io/examples/hiplot_visualizations.html&gt;`_
+    **for the full use case.**
+
+    Axes are ordered as follows: first axis is neptune ``experiment id``,
+    second is experiment ``owner``,
+    then ``params`` and ``properties`` in alphabetical order.
+    Finally, ``metrics`` on the right side (alphabetical order as well).
+
+    This visualization it built using `HiPlot &lt;https://facebookresearch.github.io/hiplot/index.html&gt;`_.
+    It is a library published by the Facebook AI group.
+    Learn more about the `parallel coordinates plot &lt;https://en.wikipedia.org/wiki/Parallel_coordinates&gt;`_.
+
+    Tip:
+        Use ``metrics``, ``params`` and ``properties`` arguments to select what data you want to see as axes.
+
+        Use ``experiment_id``, ``state``, ``owner``, ``tag``, ``min_running_time`` arguments to filter experiments
+        included in a plot. Only experiments matching all the criteria will be returned.
+
+    Note:
+        Make sure you have your project set: ``neptune.init(&#39;USERNAME/example-project&#39;)``
+
+    Args:
+        html_file_path (:obj:`str`, optional, default is ``None``):
+            | Saves visualization as a standalone html file. No external dependencies needed.
+        metrics (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``False``):
+            | Metrics to display on the plot (as axes).
+            | If `True`, then display all metrics.
+            | If `False`, then exclude all metrics.
+        text_logs (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``False``):
+            | Text logs to display on the plot (as axes).
+            | If `True`, then display all text logs.
+            | If `False`, then exclude all text logs.
+        params (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``True``):
+            | Parameters to display on the plot (as axes).
+            | If `True`, then display all parameters.
+            | If `False`, then exclude all parameters.
+        properties (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``False``):
+            | Properties to display on the plot (as axes).
+            | If `True`, then display all properties.
+            | If `False`, then exclude all properties.
+        experiment_id (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | An experiment id like ``&#39;SAN-1&#39;`` or list of ids like ``[&#39;SAN-1&#39;, &#39;SAN-2&#39;]``.
+            | Matching any element of the list is sufficient to pass criterion.
+        state (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | An experiment state like ``&#39;succeeded&#39;`` or list of states like ``[&#39;succeeded&#39;, &#39;running&#39;]``.
+            | Possible values: ``&#39;running&#39;``, ``&#39;succeeded&#39;``, ``&#39;failed&#39;``, ``&#39;aborted&#39;``.
+            | Matching any element of the list is sufficient to pass criterion.
+        owner (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | *Username* of the experiment owner (User who created experiment is an owner) like ``&#39;josh&#39;``
+              or list of owners like ``[&#39;frederic&#39;, &#39;josh&#39;]``.
+            | Matching any element of the list is sufficient to pass criterion.
+        tag (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | An experiment tag like ``&#39;lightGBM&#39;`` or list of tags like ``[&#39;pytorch&#39;, &#39;cycleLR&#39;]``.
+            | Only experiments that have all specified tags will match this criterion.
+        min_running_time (:obj:`int`, optional, default is ``None``):
+            Minimum running time of an experiment in seconds, like ``2000``.
+
+    Returns:
+
+        :obj:`ExperimentDisplayed`, object that can be used to get a ``list`` of ``Datapoint`` objects,
+        like this: ``ExperimentDisplayed.get_selected()``. This is only implemented for Jupyter notebook. Check
+        `HiPlot docs
+        &lt;https://facebookresearch.github.io/hiplot/py_reference.html?highlight=display#hiplot.Experiment.display&gt;`_.
+
+    Examples:
+
+        .. code:: python3
+
+            # Make sure you have your project set:
+            neptune.init(&#39;USERNAME/example-project&#39;)
+
+            # (example 1) visualization for all experiments in project
+            make_parallel_coordinates_plot()
+
+            # (example 2) visualization for experiment with tag &#39;optuna&#39; and saving to html file.
+            make_parallel_coordinates_plot(html_file_path=&#39;visualizations.html&#39;, tag=&#39;optuna&#39;)
+
+            # (example 3) visualization with all params, two metrics for experiment with tag &#39;optuna&#39;
+            make_parallel_coordinates_plot(tag=&#39;optuna&#39;, metrics=[&#39;epoch_accuracy&#39;, &#39;eval_accuracy&#39;])
+
+            # (example 4) visualization with all params and two metrics. All experiments created by john.
+            make_parallel_coordinates_plot(metrics=[&#39;epoch_accuracy&#39;, &#39;eval_accuracy&#39;], owner=&#39;john&#39;)
+    &#34;&#34;&#34;
+    _all_metrics = []
+    _all_text_logs = []
+    _all_params = []
+    _all_properties = []
+
+    if neptune.project is None:
+        msg = &#34;&#34;&#34;You do not have project, from which to fetch data.
+                 Use neptune.init() to set project, for example: neptune.init(&#39;USERNAME/example-project&#39;).
+                 See docs: https://docs.neptune.ai/neptune-client/docs/neptune.html#neptune.init&#34;&#34;&#34;
+        raise ValueError(msg)
+
+    df = neptune.project.get_leaderboard(id=experiment_id,
+                                         state=state,
+                                         owner=owner,
+                                         tag=tag,
+                                         min_running_time=min_running_time)
+    assert df.shape[0] != 0, &#39;No experiments to show. Try other filters.&#39;
+
+    # Cast columns to int or str
+    for column in df.columns.to_list():
+        if column.startswith(&#39;channel_&#39;):
+            try:
+                df = df.astype({column: float})
+                _all_metrics.append((column, column.replace(&#39;channel_&#39;, &#39;&#39;)))
+            except ValueError:
+                df = df.astype({column: str})
+                _all_text_logs.append((column, column.replace(&#39;channel_&#39;, &#39;&#39;)))
+        elif column.startswith(&#39;parameter_&#39;):
+            try:
+                df = df.astype({column: float})
+            except ValueError:
+                df = df.astype({column: str})
+            _all_params.append((column, column.replace(&#39;parameter_&#39;, &#39;&#39;)))
+        elif column.startswith(&#39;property_&#39;):
+            try:
+                df = df.astype({column: float})
+            except ValueError:
+                df = df.astype({column: str})
+            _all_properties.append((column, column.replace(&#39;property_&#39;, &#39;&#39;)))
+
+    # Validate each type of input
+    metrics = _validate_input(metrics, _all_metrics, &#39;metric&#39;)
+    text_logs = _validate_input(text_logs, _all_text_logs, &#39;text log&#39;)
+    params = _validate_input(params, _all_params, &#39;parameter&#39;)
+    properties = _validate_input(properties, _all_properties, &#39;property&#39;)
+
+    # Check for name conflicts
+    for column in [k for k, v in Counter(metrics + text_logs + params + properties).items() if v &gt; 1]:
+        if column in metrics:
+            metrics = [&#39;metric__&#39; + column if j == column else j for j in metrics]
+            _all_metrics = [(j[0], &#39;metric__&#39; + column) if j[1] == column else j for j in _all_metrics]
+        if column in text_logs:
+            text_logs = [&#39;text_log__&#39; + column if j == column else j for j in text_logs]
+            _all_text_logs = [(j[0], &#39;text_log__&#39; + column) if j[1] == column else j for j in _all_text_logs]
+        if column in params:
+            params = [&#39;param__&#39; + column if j == column else j for j in params]
+            _all_params = [(j[0], &#39;param__&#39; + column) if j[1] == column else j for j in _all_params]
+        if column in properties:
+            properties = [&#39;property__&#39; + column if j == column else j for j in properties]
+            _all_properties = [(j[0], &#39;property__&#39; + column) if j[1] == column else j for j in _all_properties]
+
+    # Rename columns in DataFrame and sort experiments by neptune id
+    new_col_names = {&#39;id&#39;: &#39;neptune_id&#39;,
+                     &#39;owner&#39;: &#39;owner&#39;}
+
+    metrics = [(j[0], j[1]) for j in _all_metrics if j[1] in metrics]
+    text_logs = [(j[0], j[1]) for j in _all_text_logs if j[1] in text_logs]
+    params = [(j[0], j[1]) for j in _all_params if j[1] in params]
+    properties = [(j[0], j[1]) for j in _all_properties if j[1] in properties]
+
+    new_col_names.update(metrics)
+    new_col_names.update(text_logs)
+    new_col_names.update(params)
+    new_col_names.update(properties)
+
+    df = df[new_col_names.keys()]
+    df = df.rename(columns=new_col_names)
+    _exp_ids_series = df[&#39;neptune_id&#39;].apply(lambda x: int(x.split(&#39;-&#39;)[-1]))
+    df.insert(loc=0, column=&#39;neptune_exp_number&#39;, value=_exp_ids_series)
+    df = df.astype({&#39;neptune_exp_number&#39;: int})
+    df = df.sort_values(by=&#39;neptune_exp_number&#39;, ascending=True)
+    df = df.drop(columns=&#39;neptune_exp_number&#39;)
+
+    # Prepare order of axes, where &#39;neptune_id&#39; is first, metrics to the right.
+    all_axes = df.columns.to_list()
+    if metrics:
+        metric_names = [j[1] for j in metrics]
+        metric_names.sort()
+        for metric in metric_names:
+            all_axes.remove(metric)
+        all_axes.sort()
+        all_axes.sort(reverse=True, key=&#39;owner&#39;.__eq__)
+        all_axes.sort(reverse=True, key=&#39;neptune_id&#39;.__eq__)
+        all_axes = all_axes + metric_names
+
+    # Prepare HiPlot visualization
+    input_to_hiplot = df.T.to_dict().values()
+    hiplot_vis = hip.Experiment().from_iterable(input_to_hiplot)
+    for j, datapoint in enumerate(hiplot_vis.datapoints[1:], 1):
+        datapoint.from_uid = hiplot_vis.datapoints[j - 1].uid
+
+    # Save to html if requested
+    if html_file_path is not None:
+        assert isinstance(html_file_path, str), \
+            &#39;&#34;html_file_path&#34; should be string, but {} is given&#39;.format(type(html_file_path))
+        if os.path.dirname(html_file_path):
+            os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
+        hiplot_vis.to_html(html_file_path)
+    hiplot_vis.display_data(hip.Displays.PARALLEL_PLOT).update({&#39;categoricalMaximumValues&#39;: df.shape[0],
+                                                                &#39;hide&#39;: [&#39;uid&#39;, &#39;from_uid&#39;],
+                                                                &#39;order&#39;: all_axes})
+    return hiplot_vis.display()
+
+
+def _validate_input(selected_columns, all_columns, type_name):
+    all_columns = [j[1] for j in all_columns]
+    if selected_columns is True:
+        selected_columns = all_columns
+    elif selected_columns is False:
+        selected_columns = []
+    elif isinstance(selected_columns, str):
+        assert selected_columns in all_columns, \
+            &#39;There is no {} with a name &#34;{}&#34; in the project columns.&#39;.format(type_name, selected_columns)
+        selected_columns = [selected_columns, ]
+    elif isinstance(selected_columns, list):
+        for j in selected_columns:
+            assert j in all_columns, &#39;There is no &#34;{}&#34; in the project columns.&#39;.format(j)
+    else:
+        raise TypeError(&#39;{} must be None, string or list of strings&#39;.format(selected_columns))
+    return selected_columns</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="neptunecontrib.viz.parallel_coordinates_plot.make_parallel_coordinates_plot"><code class="name flex">
+<span>def <span class="ident">make_parallel_coordinates_plot</span></span>(<span>html_file_path=None, metrics=False, text_logs=False, params=True, properties=False, experiment_id=None, state=None, owner=None, tag=None, min_running_time=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Visualize experiments on the parallel coordinates plot.</p>
+<p>This function, when executed in Notebook, displays interactive parallel coordinates plot in the cell's output.
+Another option is to save visualization to the standalone html file.
+You can also inspect the lineage of experiments.</p>
+<p><strong>See</strong> <code>example &lt;https://neptune-contrib.readthedocs.io/examples/hiplot_visualizations.html&gt;</code>_
+<strong>for the full use case.</strong></p>
+<p>Axes are ordered as follows: first axis is neptune <code>experiment id</code>,
+second is experiment <code>owner</code>,
+then <code>params</code> and <code>properties</code> in alphabetical order.
+Finally, <code>metrics</code> on the right side (alphabetical order as well).</p>
+<p>This visualization it built using <code>HiPlot &lt;https://facebookresearch.github.io/hiplot/index.html&gt;</code><em>.
+It is a library published by the Facebook AI group.
+Learn more about the <code>parallel coordinates plot &lt;https://en.wikipedia.org/wiki/Parallel_coordinates&gt;</code></em>.</p>
+<h2 id="tip">Tip</h2>
+<p>Use <code>metrics</code>, <code>params</code> and <code>properties</code> arguments to select what data you want to see as axes.</p>
+<p>Use <code>experiment_id</code>, <code>state</code>, <code>owner</code>, <code>tag</code>, <code>min_running_time</code> arguments to filter experiments
+included in a plot. Only experiments matching all the criteria will be returned.</p>
+<h2 id="note">Note</h2>
+<p>Make sure you have your project set: <code>neptune.init('USERNAME/example-project')</code></p>
+<h2 id="args">Args</h2>
+<p>html_file_path (:obj:<code>str</code>, optional, default is <code>None</code>):
+| Saves visualization as a standalone html file. No external dependencies needed.
+metrics (:obj:<code>bool</code> or :obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>False</code>):
+| Metrics to display on the plot (as axes).
+| If <code>True</code>, then display all metrics.
+| If <code>False</code>, then exclude all metrics.
+text_logs (:obj:<code>bool</code> or :obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>False</code>):
+| Text logs to display on the plot (as axes).
+| If <code>True</code>, then display all text logs.
+| If <code>False</code>, then exclude all text logs.
+params (:obj:<code>bool</code> or :obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>True</code>):
+| Parameters to display on the plot (as axes).
+| If <code>True</code>, then display all parameters.
+| If <code>False</code>, then exclude all parameters.
+properties (:obj:<code>bool</code> or :obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>False</code>):
+| Properties to display on the plot (as axes).
+| If <code>True</code>, then display all properties.
+| If <code>False</code>, then exclude all properties.
+experiment_id (:obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>None</code>):
+| An experiment id like <code>'SAN-1'</code> or list of ids like <code>['SAN-1', 'SAN-2']</code>.
+| Matching any element of the list is sufficient to pass criterion.
+state (:obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>None</code>):
+| An experiment state like <code>'succeeded'</code> or list of states like <code>['succeeded', 'running']</code>.
+| Possible values: <code>'running'</code>, <code>'succeeded'</code>, <code>'failed'</code>, <code>'aborted'</code>.
+| Matching any element of the list is sufficient to pass criterion.
+owner (:obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>None</code>):
+| <em>Username</em> of the experiment owner (User who created experiment is an owner) like <code>'josh'</code>
+or list of owners like <code>['frederic', 'josh']</code>.
+| Matching any element of the list is sufficient to pass criterion.
+tag (:obj:<code>str</code> or :obj:<code>list</code> of :obj:<code>str</code>, optional, default is <code>None</code>):
+| An experiment tag like <code>'lightGBM'</code> or list of tags like <code>['pytorch', 'cycleLR']</code>.
+| Only experiments that have all specified tags will match this criterion.
+min_running_time (:obj:<code>int</code>, optional, default is <code>None</code>):
+Minimum running time of an experiment in seconds, like <code>2000</code>.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>:obj:<code>ExperimentDisplayed</code>, object that can be used to get a <code>list</code> of <code>Datapoint</code> objects,</dt>
+<dt><code>like this</code></dt>
+<dd><code>ExperimentDisplayed.get_selected()</code>. This is only implemented for Jupyter notebook. Check</dd>
+</dl>
+<p><code>HiPlot docs
+&lt;https://facebookresearch.github.io/hiplot/py_reference.html?highlight=display#hiplot.Experiment.display&gt;</code>_.</p>
+<h2 id="examples">Examples</h2>
+<div class="admonition code">
+<p class="admonition-title">Code:&ensp;python3</p>
+<h1 id="make-sure-you-have-your-project-set">Make sure you have your project set:</h1>
+<p>neptune.init('USERNAME/example-project')</p>
+<h1 id="example-1-visualization-for-all-experiments-in-project">(example 1) visualization for all experiments in project</h1>
+<p>make_parallel_coordinates_plot()</p>
+<h1 id="example-2-visualization-for-experiment-with-tag-optuna-and-saving-to-html-file">(example 2) visualization for experiment with tag 'optuna' and saving to html file.</h1>
+<p>make_parallel_coordinates_plot(html_file_path='visualizations.html', tag='optuna')</p>
+<h1 id="example-3-visualization-with-all-params-two-metrics-for-experiment-with-tag-optuna">(example 3) visualization with all params, two metrics for experiment with tag 'optuna'</h1>
+<p>make_parallel_coordinates_plot(tag='optuna', metrics=['epoch_accuracy', 'eval_accuracy'])</p>
+<h1 id="example-4-visualization-with-all-params-and-two-metrics-all-experiments-created-by-john">(example 4) visualization with all params and two metrics. All experiments created by john.</h1>
+<p>make_parallel_coordinates_plot(metrics=['epoch_accuracy', 'eval_accuracy'], owner='john')</p>
+</div></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_parallel_coordinates_plot(html_file_path=None,
+                                   metrics=False,
+                                   text_logs=False,
+                                   params=True,
+                                   properties=False,
+                                   experiment_id=None,
+                                   state=None,
+                                   owner=None,
+                                   tag=None,
+                                   min_running_time=None):
+    &#34;&#34;&#34;Visualize experiments on the parallel coordinates plot.
+
+    This function, when executed in Notebook, displays interactive parallel coordinates plot in the cell&#39;s output.
+    Another option is to save visualization to the standalone html file.
+    You can also inspect the lineage of experiments.
+
+    **See** `example &lt;https://neptune-contrib.readthedocs.io/examples/hiplot_visualizations.html&gt;`_
+    **for the full use case.**
+
+    Axes are ordered as follows: first axis is neptune ``experiment id``,
+    second is experiment ``owner``,
+    then ``params`` and ``properties`` in alphabetical order.
+    Finally, ``metrics`` on the right side (alphabetical order as well).
+
+    This visualization it built using `HiPlot &lt;https://facebookresearch.github.io/hiplot/index.html&gt;`_.
+    It is a library published by the Facebook AI group.
+    Learn more about the `parallel coordinates plot &lt;https://en.wikipedia.org/wiki/Parallel_coordinates&gt;`_.
+
+    Tip:
+        Use ``metrics``, ``params`` and ``properties`` arguments to select what data you want to see as axes.
+
+        Use ``experiment_id``, ``state``, ``owner``, ``tag``, ``min_running_time`` arguments to filter experiments
+        included in a plot. Only experiments matching all the criteria will be returned.
+
+    Note:
+        Make sure you have your project set: ``neptune.init(&#39;USERNAME/example-project&#39;)``
+
+    Args:
+        html_file_path (:obj:`str`, optional, default is ``None``):
+            | Saves visualization as a standalone html file. No external dependencies needed.
+        metrics (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``False``):
+            | Metrics to display on the plot (as axes).
+            | If `True`, then display all metrics.
+            | If `False`, then exclude all metrics.
+        text_logs (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``False``):
+            | Text logs to display on the plot (as axes).
+            | If `True`, then display all text logs.
+            | If `False`, then exclude all text logs.
+        params (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``True``):
+            | Parameters to display on the plot (as axes).
+            | If `True`, then display all parameters.
+            | If `False`, then exclude all parameters.
+        properties (:obj:`bool` or :obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``False``):
+            | Properties to display on the plot (as axes).
+            | If `True`, then display all properties.
+            | If `False`, then exclude all properties.
+        experiment_id (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | An experiment id like ``&#39;SAN-1&#39;`` or list of ids like ``[&#39;SAN-1&#39;, &#39;SAN-2&#39;]``.
+            | Matching any element of the list is sufficient to pass criterion.
+        state (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | An experiment state like ``&#39;succeeded&#39;`` or list of states like ``[&#39;succeeded&#39;, &#39;running&#39;]``.
+            | Possible values: ``&#39;running&#39;``, ``&#39;succeeded&#39;``, ``&#39;failed&#39;``, ``&#39;aborted&#39;``.
+            | Matching any element of the list is sufficient to pass criterion.
+        owner (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | *Username* of the experiment owner (User who created experiment is an owner) like ``&#39;josh&#39;``
+              or list of owners like ``[&#39;frederic&#39;, &#39;josh&#39;]``.
+            | Matching any element of the list is sufficient to pass criterion.
+        tag (:obj:`str` or :obj:`list` of :obj:`str`, optional, default is ``None``):
+            | An experiment tag like ``&#39;lightGBM&#39;`` or list of tags like ``[&#39;pytorch&#39;, &#39;cycleLR&#39;]``.
+            | Only experiments that have all specified tags will match this criterion.
+        min_running_time (:obj:`int`, optional, default is ``None``):
+            Minimum running time of an experiment in seconds, like ``2000``.
+
+    Returns:
+
+        :obj:`ExperimentDisplayed`, object that can be used to get a ``list`` of ``Datapoint`` objects,
+        like this: ``ExperimentDisplayed.get_selected()``. This is only implemented for Jupyter notebook. Check
+        `HiPlot docs
+        &lt;https://facebookresearch.github.io/hiplot/py_reference.html?highlight=display#hiplot.Experiment.display&gt;`_.
+
+    Examples:
+
+        .. code:: python3
+
+            # Make sure you have your project set:
+            neptune.init(&#39;USERNAME/example-project&#39;)
+
+            # (example 1) visualization for all experiments in project
+            make_parallel_coordinates_plot()
+
+            # (example 2) visualization for experiment with tag &#39;optuna&#39; and saving to html file.
+            make_parallel_coordinates_plot(html_file_path=&#39;visualizations.html&#39;, tag=&#39;optuna&#39;)
+
+            # (example 3) visualization with all params, two metrics for experiment with tag &#39;optuna&#39;
+            make_parallel_coordinates_plot(tag=&#39;optuna&#39;, metrics=[&#39;epoch_accuracy&#39;, &#39;eval_accuracy&#39;])
+
+            # (example 4) visualization with all params and two metrics. All experiments created by john.
+            make_parallel_coordinates_plot(metrics=[&#39;epoch_accuracy&#39;, &#39;eval_accuracy&#39;], owner=&#39;john&#39;)
+    &#34;&#34;&#34;
+    _all_metrics = []
+    _all_text_logs = []
+    _all_params = []
+    _all_properties = []
+
+    if neptune.project is None:
+        msg = &#34;&#34;&#34;You do not have project, from which to fetch data.
+                 Use neptune.init() to set project, for example: neptune.init(&#39;USERNAME/example-project&#39;).
+                 See docs: https://docs.neptune.ai/neptune-client/docs/neptune.html#neptune.init&#34;&#34;&#34;
+        raise ValueError(msg)
+
+    df = neptune.project.get_leaderboard(id=experiment_id,
+                                         state=state,
+                                         owner=owner,
+                                         tag=tag,
+                                         min_running_time=min_running_time)
+    assert df.shape[0] != 0, &#39;No experiments to show. Try other filters.&#39;
+
+    # Cast columns to int or str
+    for column in df.columns.to_list():
+        if column.startswith(&#39;channel_&#39;):
+            try:
+                df = df.astype({column: float})
+                _all_metrics.append((column, column.replace(&#39;channel_&#39;, &#39;&#39;)))
+            except ValueError:
+                df = df.astype({column: str})
+                _all_text_logs.append((column, column.replace(&#39;channel_&#39;, &#39;&#39;)))
+        elif column.startswith(&#39;parameter_&#39;):
+            try:
+                df = df.astype({column: float})
+            except ValueError:
+                df = df.astype({column: str})
+            _all_params.append((column, column.replace(&#39;parameter_&#39;, &#39;&#39;)))
+        elif column.startswith(&#39;property_&#39;):
+            try:
+                df = df.astype({column: float})
+            except ValueError:
+                df = df.astype({column: str})
+            _all_properties.append((column, column.replace(&#39;property_&#39;, &#39;&#39;)))
+
+    # Validate each type of input
+    metrics = _validate_input(metrics, _all_metrics, &#39;metric&#39;)
+    text_logs = _validate_input(text_logs, _all_text_logs, &#39;text log&#39;)
+    params = _validate_input(params, _all_params, &#39;parameter&#39;)
+    properties = _validate_input(properties, _all_properties, &#39;property&#39;)
+
+    # Check for name conflicts
+    for column in [k for k, v in Counter(metrics + text_logs + params + properties).items() if v &gt; 1]:
+        if column in metrics:
+            metrics = [&#39;metric__&#39; + column if j == column else j for j in metrics]
+            _all_metrics = [(j[0], &#39;metric__&#39; + column) if j[1] == column else j for j in _all_metrics]
+        if column in text_logs:
+            text_logs = [&#39;text_log__&#39; + column if j == column else j for j in text_logs]
+            _all_text_logs = [(j[0], &#39;text_log__&#39; + column) if j[1] == column else j for j in _all_text_logs]
+        if column in params:
+            params = [&#39;param__&#39; + column if j == column else j for j in params]
+            _all_params = [(j[0], &#39;param__&#39; + column) if j[1] == column else j for j in _all_params]
+        if column in properties:
+            properties = [&#39;property__&#39; + column if j == column else j for j in properties]
+            _all_properties = [(j[0], &#39;property__&#39; + column) if j[1] == column else j for j in _all_properties]
+
+    # Rename columns in DataFrame and sort experiments by neptune id
+    new_col_names = {&#39;id&#39;: &#39;neptune_id&#39;,
+                     &#39;owner&#39;: &#39;owner&#39;}
+
+    metrics = [(j[0], j[1]) for j in _all_metrics if j[1] in metrics]
+    text_logs = [(j[0], j[1]) for j in _all_text_logs if j[1] in text_logs]
+    params = [(j[0], j[1]) for j in _all_params if j[1] in params]
+    properties = [(j[0], j[1]) for j in _all_properties if j[1] in properties]
+
+    new_col_names.update(metrics)
+    new_col_names.update(text_logs)
+    new_col_names.update(params)
+    new_col_names.update(properties)
+
+    df = df[new_col_names.keys()]
+    df = df.rename(columns=new_col_names)
+    _exp_ids_series = df[&#39;neptune_id&#39;].apply(lambda x: int(x.split(&#39;-&#39;)[-1]))
+    df.insert(loc=0, column=&#39;neptune_exp_number&#39;, value=_exp_ids_series)
+    df = df.astype({&#39;neptune_exp_number&#39;: int})
+    df = df.sort_values(by=&#39;neptune_exp_number&#39;, ascending=True)
+    df = df.drop(columns=&#39;neptune_exp_number&#39;)
+
+    # Prepare order of axes, where &#39;neptune_id&#39; is first, metrics to the right.
+    all_axes = df.columns.to_list()
+    if metrics:
+        metric_names = [j[1] for j in metrics]
+        metric_names.sort()
+        for metric in metric_names:
+            all_axes.remove(metric)
+        all_axes.sort()
+        all_axes.sort(reverse=True, key=&#39;owner&#39;.__eq__)
+        all_axes.sort(reverse=True, key=&#39;neptune_id&#39;.__eq__)
+        all_axes = all_axes + metric_names
+
+    # Prepare HiPlot visualization
+    input_to_hiplot = df.T.to_dict().values()
+    hiplot_vis = hip.Experiment().from_iterable(input_to_hiplot)
+    for j, datapoint in enumerate(hiplot_vis.datapoints[1:], 1):
+        datapoint.from_uid = hiplot_vis.datapoints[j - 1].uid
+
+    # Save to html if requested
+    if html_file_path is not None:
+        assert isinstance(html_file_path, str), \
+            &#39;&#34;html_file_path&#34; should be string, but {} is given&#39;.format(type(html_file_path))
+        if os.path.dirname(html_file_path):
+            os.makedirs(os.path.dirname(html_file_path), exist_ok=True)
+        hiplot_vis.to_html(html_file_path)
+    hiplot_vis.display_data(hip.Displays.PARALLEL_PLOT).update({&#39;categoricalMaximumValues&#39;: df.shape[0],
+                                                                &#39;hide&#39;: [&#39;uid&#39;, &#39;from_uid&#39;],
+                                                                &#39;order&#39;: all_axes})
+    return hiplot_vis.display()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="neptunecontrib.viz" href="index.html">neptunecontrib.viz</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="neptunecontrib.viz.parallel_coordinates_plot.make_parallel_coordinates_plot" href="#neptunecontrib.viz.parallel_coordinates_plot.make_parallel_coordinates_plot">make_parallel_coordinates_plot</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
