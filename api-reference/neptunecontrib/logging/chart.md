@@ -1,2 +1,0 @@
-Module neptunecontrib.logging.chart
-===================================
