@@ -4,6 +4,11 @@ Module neptunecontrib.api.audio
 Functions
 ---------
 
+```python
+log_audio('audio-file.wav')
+log_audio('/full/path/to/some/other/audio/file.mp3')
+log_audio('/full/path/to/some/other/audio/file.mp3', 'my_audio')
+```
     
 `log_audio(path_to_file, audio_name=None, experiment=None)`
 :   Logs audio file to 'artifacts/audio' with player.
