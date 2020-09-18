@@ -15,7 +15,7 @@
 
 * [neptune](api-reference/index.md)
 * [neptune-contrib](api-reference/neptunecontrib/README.md)
-  * [audio](api-reference/neptunecontrib/audio.md)
+  * [audio](api-reference/neptunecontrib/api/audio.md)
 
 ## Structured dir
 
