@@ -8,6 +8,8 @@ Functions
 log_audio('audio-file.wav')
 log_audio('/full/path/to/some/other/audio/file.mp3')
 log_audio('/full/path/to/some/other/audio/file.mp3', 'my_audio')
+
+neptune.create_experiment('blabla')
 ```
     
 `log_audio(path_to_file, audio_name=None, experiment=None)`
