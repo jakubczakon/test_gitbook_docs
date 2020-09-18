@@ -94,6 +94,7 @@ ${function(m) | indent}
   functions = module.functions(sort=sort_identifiers)
   submodules = module.submodules()
   heading = 'Namespace' if module.is_namespace else 'Module'
+  prefix = https://app.gitbook.com/@jakub-czakon/s/neptune-ai/
 %>
 
 ${heading} ${module.name}
@@ -104,7 +105,7 @@ ${module.docstring}
 Sub-modules
 -----------
     % for m in submodules:
-* [${m.name}](/api-reference/${module.name}/${m.name}.md)
+* [${m.name}](prefix/api-reference/${module.name}/${m.name}.md)
     % endfor
 % endif
 
