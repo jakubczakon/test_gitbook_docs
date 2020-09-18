@@ -3,22 +3,22 @@ Module neptune
 
 Sub-modules
 -----------
-* [neptune.api_exceptions](/api-reference/neptune/neptune.api_exceptions.md)
-* [neptune.backend](/api-reference/neptune/neptune.backend.md)
-* [neptune.checkpoint](/api-reference/neptune/neptune.checkpoint.md)
-* [neptune.constants](/api-reference/neptune/neptune.constants.md)
-* [neptune.envs](/api-reference/neptune/neptune.envs.md)
-* [neptune.exceptions](/api-reference/neptune/neptune.exceptions.md)
-* [neptune.experiments](/api-reference/neptune/neptune.experiments.md)
-* [neptune.git_info](/api-reference/neptune/neptune.git_info.md)
-* [neptune.internal](/api-reference/neptune/neptune.internal.md)
-* [neptune.model](/api-reference/neptune/neptune.model.md)
-* [neptune.notebook](/api-reference/neptune/neptune.notebook.md)
-* [neptune.oauth](/api-reference/neptune/neptune.oauth.md)
-* [neptune.patterns](/api-reference/neptune/neptune.patterns.md)
-* [neptune.projects](/api-reference/neptune/neptune.projects.md)
-* [neptune.sessions](/api-reference/neptune/neptune.sessions.md)
-* [neptune.utils](/api-reference/neptune/neptune.utils.md)
+* [neptune.api_exceptions](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.api_exceptions.md)
+* [neptune.backend](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.backend.md)
+* [neptune.checkpoint](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.checkpoint.md)
+* [neptune.constants](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.constants.md)
+* [neptune.envs](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.envs.md)
+* [neptune.exceptions](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.exceptions.md)
+* [neptune.experiments](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.experiments.md)
+* [neptune.git_info](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.git_info.md)
+* [neptune.internal](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.internal.md)
+* [neptune.model](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.model.md)
+* [neptune.notebook](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.notebook.md)
+* [neptune.oauth](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.oauth.md)
+* [neptune.patterns](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.patterns.md)
+* [neptune.projects](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.projects.md)
+* [neptune.sessions](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.sessions.md)
+* [neptune.utils](https://app.gitbook.com/@jakub-czakon/s/neptune-ai//api-reference/neptune/neptune.utils.md)
 
 Variables
 ---------
