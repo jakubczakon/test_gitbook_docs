@@ -13,13 +13,6 @@
 
 ## Api reference
 
-* [neptune](api-reference/index.md)
+* [neptune](api-reference/neptune/index.md)
 * [neptune-contrib](api-reference/neptunecontrib/README.md)
   * [audio](api-reference/neptunecontrib/api/audio.md)
-
-## Structured dir
-
-* [nice](structured-dir/doc1/README.md)
-  * [doc2](structured-dir/doc1/doc2.md)
-  * [doc3](structured-dir/doc1/doc3.md)
-
