@@ -14,5 +14,6 @@
 ## Api reference
 
 * [neptune](api-reference/neptune/index.md)
+   * [utils](api-reference/neptune/utils.md)
 * [neptune-contrib](api-reference/neptunecontrib/README.md)
   * [audio](api-reference/neptunecontrib/api/audio.md)
