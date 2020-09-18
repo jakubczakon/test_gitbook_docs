@@ -24,11 +24,11 @@ Functions
     
     Example:
     
-        .. code:: python3
-    
-            log_audio('audio-file.wav')
-            log_audio('/full/path/to/some/other/audio/file.mp3')
-            log_audio('/full/path/to/some/other/audio/file.mp3', 'my_audio')
+        ```python
+        log_audio('audio-file.wav')
+        log_audio('/full/path/to/some/other/audio/file.mp3')
+        log_audio('/full/path/to/some/other/audio/file.mp3', 'my_audio')
+        ```
     
     Note:
         Check out how the logged audio file looks in Neptune:
